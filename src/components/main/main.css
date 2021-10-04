@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+body{
+  margin: 0px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.wrapper{
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 800px;
+    margin: 0px;
+  }  
+  
+  .titleBar{
+    -webkit-app-region: drag;
+    display: grid;
+    margin: 0px;
+    color: white;
+    background-color: rgb(46, 46, 46);
+    grid-template-columns: 1fr auto;
+  }
+
+  .right{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    float: right;
+  }
+
+  button {
+    -webkit-app-region: no-drag;
+  }
+
+  .mainArea{
+    display: flex;
+  }
+
+  .foldBtn{
+    position: relative;
+    top: 10px;
+    all: unset;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    color: #dfe6e9;
+    background-color: #2d3436;
+    border-collapse: collapse;
+    border-top: 1px solid #505050;
+    border-right: 1px solid #505050;
+    border-left: 1px solid #2d3436;
+    border-bottom: 1px solid #505050;
+    border-top-right-radius: 5px ;
+    border-bottom-right-radius: 5px;
+    transition: 0.25s all;
+  }
+
+  .foldBtn:hover {
+    background-color: #374042;
+    border-left: 1px solid #374042;
+  }

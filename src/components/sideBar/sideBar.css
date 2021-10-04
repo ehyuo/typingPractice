@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+.sideBar{
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh);
+    border-right: 1px solid #505050;
+    border-collapse: collapse;
+    box-sizing: border-box;
+}
+.selectedPageMode {
+    margin-left: 1px;
+    position: relative;
+    width: 5px;
+    background-color: #dfe6e9;
+    border-radius: 2px;
+    height: 30px;
+}
+.buttonList{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+}
+.sideBar button {
+    all: unset;
+    margin: auto;
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+    transition: 0.2s all;
+}
+
+.sideBar button:hover{
+    background-color: #374042;
+}
+
+.sideBar button div {
+    margin-left: 10px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.settingBtn img{
+    filter: opacity(0.5) drop-shadow(0 0 0 white);
+}
+
+
+  
