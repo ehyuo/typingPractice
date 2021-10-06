@@ -1,6 +1,6 @@
+import "./titleBar.css";
 import img from "../../img/x.png"
 const electron = window.require("electron");
-
 const ipc = electron.ipcRenderer;
 
 const TitleBarContainer = () => {
