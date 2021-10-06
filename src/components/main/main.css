@@ -13,15 +13,6 @@ body{
     height: 800px;
     margin: 0px;
   }  
-  
-  .titleBar{
-    -webkit-app-region: drag;
-    display: grid;
-    margin: 0px;
-    color: white;
-    background-color: rgb(46, 46, 46);
-    grid-template-columns: 1fr auto;
-  }
 
   .right{
     display: grid;
