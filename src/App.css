@@ -13,13 +13,7 @@ div{
   transform: scaleX(0.1);
   border-radius: 3px;
 }
-.redo{
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  height: 40px;
 
-  margin: 5px;
-  border-radius: 3px;
-}
 .sentence{
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   line-height: 40px;
@@ -40,8 +34,6 @@ div{
   text-align: center;
 }
 
-
-
 .inputField{
   display: flex; 
 }
@@ -50,7 +42,6 @@ div{
   background-color: #2d3436;
   color: #dfe6e9; 
 }
-
 
 .buttonPanel{
   display: flex;

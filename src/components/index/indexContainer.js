@@ -17,7 +17,7 @@ const IndexContainer = () => {
     const [wordCount, setWordCount] = useState(0);
     const [longTextCount, setLongTextCount] = useState(0);
     
-    
+    //레코드 불러오기
     useEffect(() => {
         Axios.post("http://localhost:3001/record/getRecords",
         null,
@@ -27,6 +27,7 @@ const IndexContainer = () => {
         })
     }, []);
 
+    //컨텐트 갯수 불러오기
     useEffect(() => {
         Axios.post("http://localhost:3001/content/contentCount",
         null,

@@ -6,6 +6,7 @@ function InputField(props) {
                 <input
                     class="typing"
                     type="text"
+                    spellcheck="false"
                     value={props.inputText}
                     onInput={props.onInput}
                     onKeyDown={props.onKeyDown}

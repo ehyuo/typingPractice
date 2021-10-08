@@ -31,15 +31,6 @@ const SettingContainer = () => {
 
     const text = useSelector(state => state.text.text);
     const isFinished = useSelector(state => state.typingProgress.isFinished);
-    const { isLoading, isSetting, mode, language, content } = useSelector(state => ({
-        isLoading: state.setting.isLoading,
-        isSetting: state.setting.isSetting,
-        mode: state.setting.mode,
-        language: state.setting.language,
-        content: state.setting.content
-    }));
-
-    let history = useHistory();
     
     useEffect(() => {
         if (selectedMode == "longText") {
@@ -52,14 +43,10 @@ const SettingContainer = () => {
         }
     }, [selectedLanguage, selectedMode]);
 
-
-
-
     const contentProcessing = () => {
         try {
             dispatch(setLanguage(selectedLanguage));
             dispatch(setMode(selectedMode));
-            console.log(selectedLanguage);
             //콘텐트 불러오기
             Axios.post("http://localhost:3001/content/getContent",
                 {
@@ -103,8 +90,6 @@ const SettingContainer = () => {
         }
     }
 
-    
-
     const onClickConfirm = async () => {
         if (selectedLanguage == "" ||
             selectedMode == "" ||
@@ -142,7 +127,11 @@ const SettingContainer = () => {
                 setIsModeSelecting={setIsModeSelecting}
             >
             </SettingField>
-            
+            <button onClick={() => {
+                Axios.post("http://localhost:3001/content/createContent",
+                null,
+                { withCredentials: true })
+            }}>d</button>
         </div>
 
     )

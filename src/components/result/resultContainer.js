@@ -32,10 +32,6 @@ const ResultContainer = (props) => {
         return ({ speed: row })
     });
 
-    const accuracyData = accuracyList.map(row => {
-        return ({ accuracy: row })
-    });
-
     const getAverage = (list) => {
         return (
             list.reduce((a, b) => {

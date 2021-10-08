@@ -67,7 +67,7 @@ const InputContainer = (props) => {
     const array = resultText.filter((row) => row.differ == false);
     dispatch(setTypingAccuracy(Math.floor((inputList.length - array.length) * 100 / inputList.length)));
 
-    //contTyping
+    //countTyping
     const array1 = resultText.filter((row) => row.differ == true);
     dispatch(setTypingCount(array1.length));
     dispatch(setInputText(e.target.value));

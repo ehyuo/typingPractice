@@ -28,7 +28,6 @@ const MainContainer = () => {
   }
   if (pageMode == "index") {
     return (
-      
         <div 
           class="wrapper"
           style={wrapperStyle}>

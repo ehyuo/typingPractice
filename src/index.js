@@ -11,14 +11,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 const store = createStore(reducer);
 
-
-
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-    <App />
+      <App />
     </BrowserRouter>
-    
   </Provider>,
   document.getElementById('root')
 );

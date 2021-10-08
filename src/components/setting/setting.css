@@ -123,7 +123,7 @@
 .modeList {
     display: flex;
     position: absolute;
-    top: 200px;
+    top: 225px;
     gap: 3px;
     flex-direction: column;
     width: 150px;
@@ -138,7 +138,7 @@
 .languageList {
     display: flex;
     position: absolute;
-    top: 200px;
+    top: 225px;
     gap: 3px;
     flex-direction: column;
     width: 150px;

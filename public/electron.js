@@ -10,8 +10,6 @@ function createWindow () {
       maxWidth: 1000,
       maxHeight: 800,
       frame: false,
-      resizable:false,
-      transparent:true,
       webPreferences: {
         enableRemoteModule: true,
         nodeIntegration: true,

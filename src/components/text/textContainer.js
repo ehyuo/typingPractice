@@ -12,7 +12,6 @@ import "./text.css";
 const TextContainer = (props) => {
     const dispatch = useDispatch();
 
-
     //text
     const { text, nextText, resultText } = useSelector(state => ({
         text: state.text.text,
@@ -32,7 +31,6 @@ const TextContainer = (props) => {
     useEffect(() => {
         dispatch(textToResultText());
     }, [text]);
-
 
     const printResultText = () => {
         return (
@@ -58,7 +56,6 @@ const TextContainer = (props) => {
                     nextSentence={nextText}>
                 </Sentence>
             </div>
-
         )
     } else if (mode == "word") {
         return (

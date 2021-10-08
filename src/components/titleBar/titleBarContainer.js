@@ -1,5 +1,6 @@
 import "./titleBar.css";
-import img from "../../img/x.png"
+import closeIcon from "../../img/x.png"
+import minimizeIcon from "../../img/_.png"
 const electron = window.require("electron");
 const ipc = electron.ipcRenderer;
 
@@ -7,13 +8,19 @@ const TitleBarContainer = () => {
     
     return (
         <div class="titleBar">
-            <button onClick={() => {
-                ipc.send("closeApp");
-            }}>close</button>
+            <div class="logo">
+                tP
+            </div>
+            <div class="functions">
             <button onClick={() => {
                 ipc.send("minimizeApp")
-            }}>minimize</button>
-
+            }}><img src={minimizeIcon} /></button>
+            <button onClick={() => {
+                ipc.send("closeApp");
+            }}><img src={closeIcon} /></button>
+            
+            </div>
+            
         </div>
     )
 }
