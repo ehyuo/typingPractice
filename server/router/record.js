@@ -17,7 +17,20 @@ router.post('/getRecords', async (req, res, next) => {
     }
 });
 
-router.post('/setRecords', async (req, res, next) => {
+
+router.get('/', async (req, res, next) => {
+    try{
+        const records = await Record.findAll({
+            order: [["createdAt", "DESC"]]
+        });
+        res.send(records);
+    } catch(err) {
+        console.error(err);
+        next(err);
+    }
+});
+
+router.post('/', async (req, res, next) => {
     try{
         
         const record = await Record.create({

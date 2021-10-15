@@ -21,10 +21,10 @@ sequelize.sync({ force: false })
 
 
 const recordRouter = require('./router/record');
-app.use('/record', recordRouter);
+app.use('/records', recordRouter);
 
 const contentRouter = require('./router/content');
-app.use('/content', contentRouter);
+app.use('/contents', contentRouter);
 
 app.listen(3001, () => {
     console.log("express server on port 3001");

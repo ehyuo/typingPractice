@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './score.css';
 import { useSelector, useDispatch } from 'react-redux';
 import ScoreField from './scoreField';
-import { useInterval } from '../../helper/useInterval';
-import { setTypingSpeed } from '../../reducers/typing/typingSpeed';
-import { increaseTimeCount } from '../../reducers/interval';
-import { setFinished } from '../../reducers/typing/typingProgress';
+import { useInterval } from '../../../helper/useInterval';
+import { setTypingSpeed } from '../../../reducers/typing/typingSpeed';
+import { increaseTimeCount } from '../../../reducers/interval';
+import { setFinished } from '../../../reducers/typing/typingProgress';
 import { useHistory } from "react-router-dom";
-import { setPageMode } from '../../reducers/pageMode';
+import { setPageMode } from '../../../reducers/pageMode';
 
 
 function ScoreContainer(props) {

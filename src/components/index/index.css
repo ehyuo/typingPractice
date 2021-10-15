@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap');
 
 .index{
     display: flex;
     color: #dfe6e9;
     flex-direction: column;
-    font-family: 'Noto Sans', sans-serif;
 }
 .index h3 {
+    font-family: 'Lora', serif;
     margin-left: 10px;
     font-size: 30px;
 }

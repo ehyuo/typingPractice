@@ -4,9 +4,7 @@ import Sentence from './sentence';
 import Word from './word';
 import LongText from './longText';
 
-
-import { textToResultText } from "../../reducers/text/text";
-
+import { textToResultText } from "reducers/text/text";
 import "./text.css";
 
 const TextContainer = (props) => {

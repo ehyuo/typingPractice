@@ -1,17 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import InputField from "./inputField";
 import { useDispatch, useSelector } from "react-redux";
 
-import { insertTypingAccuracy, setTypingAccuracy } from "../../reducers/typing/typingAccuracy";
-import { setIsRunning, setTypingCount, resetInterval } from "../../reducers/interval";
-import { setInputText, resetInputText } from "../../reducers/text/inputText";
+import { insertTypingAccuracy, setTypingAccuracy } from "reducers/typing/typingAccuracy";
+import { setIsRunning, setTypingCount, resetInterval } from "reducers/interval";
+import { setInputText, resetInputText } from "reducers/text/inputText";
 
-import { setResultText, nextTextToText, setNextText, textToResultText, setText } from "../../reducers/text/text";
-import { turnPage } from "../../reducers/text/longText";
-import { increaseTypingProgress } from "../../reducers/typing/typingProgress";
-import { setMode } from "../../reducers/setting";
-import { insertTypingSpeed } from "../../reducers/typing/typingSpeed";
-import { increaseBackSpace } from "../../reducers/typing/typingBackspace";
+import { setResultText, nextTextToText, setNextText, textToResultText, setText } from "reducers/text/text";
+import { turnPage } from "reducers/text/longText";
+import { increaseTypingProgress } from "reducers/typing/typingProgress";
+import { insertTypingSpeed } from "reducers/typing/typingSpeed";
+import { increaseBackSpace } from "reducers/typing/typingBackspace";
 
 
 const InputContainer = (props) => {
@@ -24,21 +23,17 @@ const InputContainer = (props) => {
     resultText: state.text.resultText
   }));
 
-  const longTextContent = useSelector(state => state.longText.longTextContent);
-  const pageIndex = useSelector(state => state.longText.pageIndex);
-  //progress
-  const { progress, goalProgress } = useSelector(state => ({
-    progress: state.typingProgress.progress,
-    goalProgress: state.typingProgress.goalProgress
+  const { longTextContent, pageIndex } = useSelector(state => ({
+    longTextContent: state.longText.longTextContent,
+    pageIndex: state.longText.pageIndex
   }));
 
   //else
   const mode = useSelector(state => state.setting.mode);
   const content = useSelector(state => state.setting.content);
-  const typingCount = useSelector(state => state.interval.typingCount);
-
   const language = useSelector(state => state.setting.language);
 
+  const typingCount = useSelector(state => state.interval.typingCount);
   //input
   const onInput = (e) => {
     if (e.target.value.length == 1) {
@@ -46,9 +41,7 @@ const InputContainer = (props) => {
     }
     //배열화
     const textList = text.split('');
-    
     const inputList = e.target.value.split('');
-    console.log();
 
     //resultText
     dispatch(setResultText(textList.map((row, idx) => {

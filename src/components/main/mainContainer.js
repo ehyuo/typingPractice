@@ -1,20 +1,14 @@
-import img from "../../img/setting.png";
-import ScoreContainer from "../score/scoreContainer";
-import InputContainer from "../input/inputContainer";
-import TextContainer from "../text/textContainer";
-import SideBarContainer from "../sideBar/sideBarContainer";
-import { useHistory } from "react-router-dom";
+import ScoreContainer from "../typing/score/scoreContainer";
+import InputContainer from "../typing/input/inputContainer";
+import TextContainer from "../typing/text/textContainer";
 import { useSelector, useDispatch } from "react-redux";
-import { setSetting } from "../../reducers/setting";
 
-import { CSSTransition } from "react-transition-group";
 import "./main.css";
-import { useEffect, useState } from "react";
 import IndexContainer from "../index/indexContainer";
 import SettingContainer from "../setting/settingContainer";
 import ResultContainer from "../result/resultContainer";
 import ScoreChartContainer from "../scoreChart/scoreChartContainer";
-import { setIsFolded } from "../../reducers/fold";
+import { setIsFolded } from "reducers/fold";
 
 const MainContainer = () => {
   const pageMode = useSelector((state) => state.pageMode.pageMode);

@@ -9,7 +9,7 @@ import ResultInfo from "./resultInfo";
 import ResultSend from "./resultSend";
 
 import Axios from 'axios';
-import { setPageMode } from '../../reducers/pageMode';
+import { setPageMode } from 'reducers/pageMode';
 
 const ResultContainer = (props) => {
     let history = useHistory();
@@ -47,7 +47,7 @@ const ResultContainer = (props) => {
         if (name == "") {
             console.log('name is required');
         } else {
-            Axios.post("http://localhost:3001/record/setRecords",
+            Axios.post("/records",
                 {
                     name: name,
                     language: language,

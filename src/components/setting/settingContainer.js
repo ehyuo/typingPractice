@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
-import SettingField from "./settingField"
-import { setContent, setLanguage, setLoading, setMode, setSetting } from "../../reducers/setting";
-import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-
-import { setText, setNextText } from '../../reducers/text/text';
-import { setLongTextContent } from '../../reducers/text/longText';
-
-
-import { resetTypingSpeed } from '../../reducers/typing/typingSpeed';
-import { resetTypingProgress, setGoalProgress } from '../../reducers/typing/typingProgress';
-import { resetTyipingAccuracy } from '../../reducers/typing/typingAccuracy';
-import { resetBackSpace } from '../../reducers/typing/typingBackspace';
 import Axios from "axios";
-import { setPageMode } from "../../reducers/pageMode";
+
+import SettingField from "./settingField"
+
+//set reducers
+import { setContent, setLanguage, setLoading, setMode, setSetting } from "reducers/setting";
+import { setText, setNextText } from 'reducers/text/text';
+import { setLongTextContent } from 'reducers/text/longText';
+import { setPageMode } from "reducers/pageMode";
+
+//reset reducers
+import { resetTypingSpeed } from 'reducers/typing/typingSpeed';
+import { resetTypingProgress, setGoalProgress } from 'reducers/typing/typingProgress';
+import { resetTyipingAccuracy } from 'reducers/typing/typingAccuracy';
+import { resetBackSpace } from 'reducers/typing/typingBackspace';
+
+
 
 const SettingContainer = () => {
     const dispatch = useDispatch();
@@ -29,13 +32,12 @@ const SettingContainer = () => {
     const [isLanguageSelecting, setIsLanguageSelecting] = useState(false);
     const [isModeSelecting, setIsModeSelecting] = useState(false);
 
-    const text = useSelector(state => state.text.text);
     const isFinished = useSelector(state => state.typingProgress.isFinished);
     
     useEffect(() => {
         if (selectedMode == "longText") {
-            Axios.post("http://localhost:3001/content/getTitles",
-                { language: selectedLanguage },
+            Axios.get(`/contents/titles/${selectedLanguage}`,
+                null,
                 { withCredentials: true })
                 .then((res) => {
                     setLongTextList(res.data);
@@ -48,12 +50,11 @@ const SettingContainer = () => {
             dispatch(setLanguage(selectedLanguage));
             dispatch(setMode(selectedMode));
             //콘텐트 불러오기
-            Axios.post("http://localhost:3001/content/getContent",
-                {
-                    language: selectedLanguage,
-                    mode: selectedMode,
-                    title: selectedLongText
-                },
+            Axios.get(
+                (selectedMode == "longText") ? 
+                `/contents/${selectedLanguage}/${selectedMode}/${selectedLongText}`:
+                `/contents/${selectedLanguage}/${selectedMode}`,    
+                null, 
                 { withCredentials: true })
                 .then((res) => {
                     dispatch(setContent(res.data));

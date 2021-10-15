@@ -1,8 +1,8 @@
 import './App.css';
 
-import MainContainer from './components/main/mainContainer';
-import SideBarContainer from './components/sideBar/sideBarContainer';
-import TitleBarContainer from './components/titleBar/titleBarContainer';
+import MainContainer from 'components/main/mainContainer';
+import SideBarContainer from 'components/sideBar/sideBarContainer';
+import TitleBarContainer from 'components/titleBar/titleBarContainer';
 
 const App = () => {
 

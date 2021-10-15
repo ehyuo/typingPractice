@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import "./index.css"
 import Axios from "axios";
 
-import { setPageMode } from "../../reducers/pageMode";
+import { setPageMode } from "reducers/pageMode";
 import { useDispatch } from "react-redux";
 
 
@@ -19,7 +19,7 @@ const IndexContainer = () => {
     
     //레코드 불러오기
     useEffect(() => {
-        Axios.post("http://localhost:3001/record/getRecords",
+        Axios.get("/records",
         null,
         { withCredentials: true })
         .then((res) => {
@@ -29,7 +29,7 @@ const IndexContainer = () => {
 
     //컨텐트 갯수 불러오기
     useEffect(() => {
-        Axios.post("http://localhost:3001/content/contentCount",
+        Axios.get("/contents/count",
         null,
         { withCredentials: true })
         .then((res) => {

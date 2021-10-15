@@ -41,6 +41,7 @@ div{
 .inputField input {
   background-color: #2d3436;
   color: #dfe6e9; 
+  font-family: 'Poppins', sans-serif;
 }
 
 .buttonPanel{
@@ -48,12 +49,6 @@ div{
   justify-content: space-between;
   box-sizing: border-box;
 }
-
-
-
-
-
-
 .typing {
   font-size: medium;
   padding: 10px;
@@ -90,10 +85,7 @@ div{
 
 .Btn1{
   width: 70px;
-  
-
   overflow: hidden;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 17px;
   border-radius: 3px;
   margin: 5px;

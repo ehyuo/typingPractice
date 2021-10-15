@@ -5,10 +5,8 @@
     width: 100%;
     height: 25px;
     border-bottom: 1px solid #505050;
-    
     -webkit-user-select: none;
-    
-  }
+}
 
 .titleBar button {
     color: #dfe6e9;
@@ -22,15 +20,19 @@
     -webkit-app-region: no-drag;
 }
 
-.titleBar button:hover {
+.titleBar .minimizeBtn:hover {
   background-color: #505050;
 }
+.titleBar .closeBtn:hover {
+  background-color: #e95035;
+}
+
 
 .titleBar button img {
   width: 10px;
   image-rendering: -webkit-optimize-contrast;
-transform: translateZ(0);
-backface-visibility: hidden;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 .logo{
   color: #dfe6e9;
