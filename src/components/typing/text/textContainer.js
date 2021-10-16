@@ -5,7 +5,6 @@ import Word from './word';
 import LongText from './longText';
 
 import { textToResultText } from "reducers/text/text";
-import "./text.css";
 
 const TextContainer = (props) => {
     const dispatch = useDispatch();
@@ -44,16 +43,16 @@ const TextContainer = (props) => {
         );
     }
 
-      
+
     if (mode == "sentence") {
         return (
-            <div>
-                <Sentence
-                    printResultText={printResultText()}
-                    text={text}
-                    nextSentence={nextText}>
-                </Sentence>
-            </div>
+
+            <Sentence
+                printResultText={printResultText()}
+                text={text}
+                nextSentence={nextText}>
+            </Sentence>
+
         )
     } else if (mode == "word") {
         return (

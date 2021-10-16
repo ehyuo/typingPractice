@@ -33,14 +33,10 @@ const IndexContainer = () => {
         null,
         { withCredentials: true })
         .then((res) => {
-            res.data.map(row => {
-                if(row.mode == "sentence")
-                    setSentenceCount(sentenceCount+1);
-                if(row.mode == "word") 
-                    setWordCount(wordCount+1);
-                if(row.mode == "longText") 
-                    setLongTextCount(longTextCount+1);
-            });
+            console.log(res.data);
+            setSentenceCount(res.data.sentenceCount);
+            setWordCount(res.data.wordCount);
+            setLongTextCount(res.data.longTextCount);
         })
     }, []);
 

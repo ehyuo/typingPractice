@@ -129,7 +129,7 @@ const SettingContainer = () => {
             >
             </SettingField>
             <button onClick={() => {
-                Axios.post("http://localhost:3001/content/createContent",
+                Axios.post("http://localhost:3001/contents/createContent",
                 null,
                 { withCredentials: true })
             }}>d</button>

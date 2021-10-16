@@ -27,8 +27,7 @@ const SideBarContainer = () => {
       style={{
         width: isFolded ? "15%" : "0%",
         color: isFolded ? "#dfe6e9": "#2d3436",
-        borderRight: isFolded? "1px solid #505050": "none",
-        transition: "width 0.3s, color 0.1s, border 0.1s",
+        transition: "width 0.3s, color 0.1s",
       }}
     >
       <div

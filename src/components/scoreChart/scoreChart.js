@@ -13,7 +13,7 @@ const ScoreChart = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.isLoading ? "Loading" : props.recordPages[props.currentPage].map((row, idx) => {
+                    {props.isLoading ? <div style={{ fontSize: "30px" }}>Loading</div> : props.recordPages[props.currentPage].map((row, idx) => {
                         const className = ((idx % 2) == 0 ? "common" : "alter")
                         return (
                             <tr class={className}>
@@ -29,7 +29,7 @@ const ScoreChart = (props) => {
                 </tbody>
             </table>
             <div class="pages">
-            {props.isLoading ? "Loading" : props.recordPages.map((row, idx) => {
+            {props.isLoading ? "" : props.recordPages.map((row, idx) => {
                 return (
                     <button
                         class="pageBtn"

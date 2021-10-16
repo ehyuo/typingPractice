@@ -1,23 +1,11 @@
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
 
-const { applyMiddleware } = require('redux');
 const Record = require('../models/record');
 const router = express.Router();
 
-router.post('/getRecords', async (req, res, next) => {
-    try{
-        const records = await Record.findAll({
-            order: [["createdAt", "DESC"]]
-        });
-        res.send(records);
-    } catch(err) {
-        console.error(err);
-        next(err);
-    }
-});
 
-
+//GET requests
 router.get('/', async (req, res, next) => {
     try{
         const records = await Record.findAll({
@@ -30,6 +18,7 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+//POST requests
 router.post('/', async (req, res, next) => {
     try{
         

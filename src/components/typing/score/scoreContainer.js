@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './score.css';
 import { useSelector, useDispatch } from 'react-redux';
 import ScoreField from './scoreField';
 import { useInterval } from '../../../helper/useInterval';

@@ -1,0 +1,106 @@
+.sentence{
+    line-height: 40px;
+    padding: 5%;
+    color: #dfe6e9;
+    font-size: 18px;
+    line-height: 50px;
+    background-color: #374042;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 5px;
+    
+  }
+  .word{
+    line-height: 40px;
+    padding: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    text-align: center;
+  }
+  
+  .typingContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 10px;
+      
+  }
+  .inputField{
+    display: flex; 
+  }
+  
+  .inputField input {
+    background-color: #374042;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    color: #dfe6e9; 
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 8px;
+  }
+  
+  .buttonPanel{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .typing {
+    font-size: medium;
+    padding: 10px;
+    width: 100%;
+    height: 30px;
+    border-radius: 20px;
+    border: 0px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  }
+  .typing:focus {
+    outline: none;
+  }
+  #nextSentence{
+    color: gray;
+  }
+  
+  #pageCount{
+    text-align: center;
+    font-size: small;
+  }
+
+  .score{
+    display: flex;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    background-color: #374042;
+    border-radius: 5px;
+  }
+  .speed{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: calc(100%/4);
+    padding: 12px;
+    padding-bottom: 15px;
+  }
+  
+  .type{
+    font-size: 16px;
+    color: #868e96;
+  }
+  
+  .num{
+    font-size: 25px;
+    color: #dfe6e9;
+    font-weight: 500;
+  }
+
+.graph{
+    margin-top: 15px;
+    height: 10px;
+    background: #b2bec3;
+    border-radius: 3px;
+}
+
+.graph span {
+  height: 10px;
+  display: block;
+  background: #636e72;
+  border-radius: 3px;
+}

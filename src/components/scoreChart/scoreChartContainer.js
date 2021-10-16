@@ -9,16 +9,17 @@ import { useDispatch } from "react-redux";
 import { setPageMode } from "../../reducers/pageMode";
 
 const ScoreChartContainer = () => {
-    let history = useHistory();
     const dispatch = useDispatch();
     const [apiResponce, setApiResponce] = useState([]);
     const [recordPages, setRecordPages] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
 
+
+    //레코드 값 받아오기
     useEffect(() => {
         try {
-            Axios.post("http://localhost:3001/record/getRecords",
+            Axios.get("/records",
                 null,
                 { withCredentials: true })
                 .then((res) => {
@@ -29,22 +30,23 @@ const ScoreChartContainer = () => {
         }
     }, []);
 
+    //페이지 나누기
     useEffect(() => {
-        let arr1=[];
-        let arr2=[];
-        for(let i=0;i<apiResponce.length;i++){
+        let arr1 = [];
+        let arr2 = [];
+        for (let i = 0; i < apiResponce.length; i++) {
             arr1.push(apiResponce[i]);
-            if((i%10 == 9) || i == apiResponce.length - 1) {
+            if ((i % 10 == 9) || i == apiResponce.length - 1) {
                 arr2.push(arr1);
-                arr1=[];
-            }    
+                arr1 = [];
+            }
         }
         setRecordPages(arr2);
     }, [apiResponce]);
 
+    
     useEffect(() => {
-        if(recordPages != "") {
-            console.log(recordPages);
+        if (recordPages != "") {
             setIsLoading(false);
         }
     }, [recordPages])
@@ -52,16 +54,14 @@ const ScoreChartContainer = () => {
     return (
         <div class="scoreChartContainer">
             <ScoreChart
-                apiResponce={apiResponce} 
+                apiResponce={apiResponce}
                 recordPages={recordPages}
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
                 isLoading={isLoading}
-                setPageMode ={() => {
+                setPageMode={() => {
                     dispatch(setPageMode("result"));
-                }}/>
-                
-                
+                }} />
         </div>
     )
 }

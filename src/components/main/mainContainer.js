@@ -1,6 +1,4 @@
-import ScoreContainer from "../typing/score/scoreContainer";
-import InputContainer from "../typing/input/inputContainer";
-import TextContainer from "../typing/text/textContainer";
+import TypingContainer from "components/typing/typingContainer";
 import { useSelector, useDispatch } from "react-redux";
 
 import "./main.css";
@@ -52,9 +50,7 @@ const MainContainer = () => {
       <div 
         class="wrapper"
         style={wrapperStyle}>
-        <ScoreContainer></ScoreContainer>
-        <TextContainer></TextContainer>
-        <InputContainer></InputContainer>
+        <TypingContainer />        
         <button
             onClick={() => {
               dispatch(setIsFolded(!isFolded))
