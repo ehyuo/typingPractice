@@ -18,7 +18,7 @@ function ScoreField(props) {
             <div class="speed">
                 <a class="type">Max Speed</a>
                 <a class="num">{props.maxSpeed}</a>
-                <div class="graph" >
+                <div class="graph">
                     <span style={{
                         width: `${props.maxSpeed / 10}%`,
                         transition: "0.5s all"

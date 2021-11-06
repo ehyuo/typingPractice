@@ -80,7 +80,7 @@ const SettingField = (props) => {
 
 
             {props.selectedMode == "longText" ? <a class="title">LongText Lists<br /></a> : ""}
-            <div class="longText">
+            <div class="longTextList">
 
                 {props.selectedMode == "longText" ?
                     (props.longTextList.map(row => {

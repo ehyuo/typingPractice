@@ -46,13 +46,11 @@ const TextContainer = (props) => {
 
     if (mode == "sentence") {
         return (
-
             <Sentence
                 printResultText={printResultText()}
                 text={text}
                 nextSentence={nextText}>
             </Sentence>
-
         )
     } else if (mode == "word") {
         return (

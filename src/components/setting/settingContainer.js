@@ -7,7 +7,7 @@ import SettingField from "./settingField"
 //set reducers
 import { setContent, setLanguage, setLoading, setMode, setSetting } from "reducers/setting";
 import { setText, setNextText } from 'reducers/text/text';
-import { setLongTextContent } from 'reducers/text/longText';
+import { resetPageCount, setLongTextContent } from 'reducers/text/longText';
 import { setPageMode } from "reducers/pageMode";
 
 //reset reducers
@@ -33,7 +33,11 @@ const SettingContainer = () => {
     const [isModeSelecting, setIsModeSelecting] = useState(false);
 
     const isFinished = useSelector(state => state.typingProgress.isFinished);
-    
+    const { pageIndex, pageCount } = useSelector(state => ({
+        pageIndex: state.longText.pageIndex,
+        pageCount: state.longText.pageCount
+    }));
+
     useEffect(() => {
         if (selectedMode == "longText") {
             Axios.get(`/contents/titles/${selectedLanguage}`,
@@ -60,9 +64,9 @@ const SettingContainer = () => {
                     dispatch(setContent(res.data));
                     if (selectedMode == "longText") {
                         let arr = [];
-                        let count = parseInt(res.data[0].content.length / 200) + 1;
-                        for (let i = 0; i < parseInt(res.data[0].content.length / 200) + 1; i++) {
-                            arr.push(res.data[0].content.substring(i * 200, (i + 1) * 200).trim());
+                        let count = parseInt(res.data[0].content.length / 300) + 1;
+                        for (let i = 0; i < parseInt(res.data[0].content.length / 300) + 1; i++) {
+                            arr.push(res.data[0].content.substring(i * 300, (i + 1) * 300).trim());
                         }
                         arr.push('');
                         dispatch(setLongTextContent(arr, count));

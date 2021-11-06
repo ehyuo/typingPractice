@@ -2,19 +2,32 @@
 
 .result{
   display: flex;
-  margin: 30px auto;
+  gap: 10px;
+  width: 100%;
+  height: 520px;
+  padding: 10px;
+  box-sizing: border-box;
 }
-.speedChart{
-  margin: 3px;
+
+.resultChart{
+  width: 60%;
+  height: 100%;
   border-radius: 3px;
   background-color: #374042;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
 
+.info{
+  display: flex;
+  width: 40%;
+  height: 100%;
+  flex-direction: column;
+  gap: 3px;
+}
 .resultInfo{
-  margin: 3px;
   padding: 3px;
+  height: 80%;
   border-radius: 3px;
   background-color: #374042;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -26,27 +39,21 @@
 .resultInfo table td {
   padding: 5px;
 }
-
 .resultType {
  color: #b2bec3; 
  font-size: 13px;
 }
-
 .resultLanguage {
   color: #dfe6e9;
   font-size: 20px;
-}
-.info{
-  display: flex;
-  flex-direction: column;
 }
 
 
 .resultSend{
   display: flex;
+  gap: 3px;
 }
 .resultSend input{
-  margin: 3px;
   font-size: medium;
   padding: 10px;
   width: 70%;
@@ -66,7 +73,6 @@
 
 
 .resultSend button{
-  margin: 3px;
   width: 30%;
   height: 50px;
   font-family: 'Poppins', sans-serif;
@@ -98,15 +104,10 @@
   color: #dfe6e9;
 }
 
-
-
-
-
 .againBtn{
   display: flex;
 }
 .again{
-  margin: 3px;
   width: 100%;
   height: 50px;
   font-size: 15px;
@@ -127,7 +128,6 @@
   display: flex;
 }
 .scoreChart{
-  margin: 3px;
   width: 100%;
   height: 50px;
   font-family: 'Poppins', sans-serif;

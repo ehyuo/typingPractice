@@ -6,9 +6,7 @@ const ipc = ipcMain
 function createWindow () {
     const win = new BrowserWindow({
       width: 1000,
-      height: 800,
-      maxWidth: 1000,
-      maxHeight: 800,
+      height: 600,
       frame: false,
       webPreferences: {
         enableRemoteModule: true,

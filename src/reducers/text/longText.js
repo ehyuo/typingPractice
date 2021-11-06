@@ -1,8 +1,10 @@
 const SET = "longText/SET";
 const TURN = "longText/TURN";
+const RESET = "longText/RESET";
 
 export const setLongTextContent = (longTextContent, pageCount) => ({ type: SET, longTextContent: longTextContent, pageCount: pageCount });
 export const turnPage = () => ({ type: TURN });
+export const resetPageCount = () => ({ type: RESET });
 
 const initState = {
     longTextContent: [],
@@ -16,12 +18,19 @@ const longText = (state = initState, actions) => {
             return state = {
                 ...state,
                 longTextContent: actions.longTextContent,
+                pageIndex: 0,
                 pageCount: actions.pageCount
             }
         case TURN:
             return state = {
                 ...state,
                 pageIndex: state.pageIndex + 1
+            }
+        case RESET:
+            return state = {
+                ...state,
+                pageIndex: 0,
+                pageCount: 0
             }
         default:
             return state;

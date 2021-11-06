@@ -2,12 +2,9 @@ import React from 'react';
 
 function LongText(props) {
     return (
-        <div>
-            <div class="sentence">
-                {props.printResultText}
-                <br/>
-                <div id="pageCount">{props.pageIndex+1}/{props.pageCount}</div>
-            </div>
+        <div class="longText">
+            <div>{props.printResultText}</div>
+            <div id="pageCount">{props.pageIndex + 1}/{props.pageCount}</div>
         </div>
     )
 }

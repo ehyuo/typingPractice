@@ -4,7 +4,6 @@ function InputField(props) {
     return(
         <div class="inputField">
                 <input
-                    class="typing"
                     type="text"
                     spellcheck="false"
                     value={props.inputText}
