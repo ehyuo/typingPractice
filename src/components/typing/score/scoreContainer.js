@@ -4,21 +4,19 @@ import ScoreField from './scoreField';
 import { useInterval } from '../../../helper/useInterval';
 import { setTypingSpeed } from '../../../reducers/typing/typingSpeed';
 import { increaseTimeCount } from '../../../reducers/interval';
-import { setFinished } from '../../../reducers/typing/typingProgress';
-import { useHistory } from "react-router-dom";
 import { setPageMode } from '../../../reducers/pageMode';
 
-
-function ScoreContainer(props) {
-    let history = useHistory();
+const ScoreContainer = (props) => {
+    const dispatch = useDispatch();
 
     const [maxSpeed, setMaxSpeed] = useState(0) ;
-    const dispatch = useDispatch();
     const language = useSelector(state => state.setting.language);
     const { speed, lastSpeed } = useSelector(state => ({
         speed: state.typingSpeed.speed,
         lastSpeed: state.typingSpeed.lastSpeed
     }));
+    const accuracy = useSelector(state => state.typingAccuracy.accuracy);
+
     const { progress, goalProgress } = useSelector(state => ({
         progress: state.typingProgress.progress,
         goalProgress: state.typingProgress.goalProgress
@@ -32,25 +30,24 @@ function ScoreContainer(props) {
       }));
 
       
-    const accuracy = useSelector(state => state.typingAccuracy.accuracy);
+
     //calculate typingSpeed
     useInterval(() => {
         let t;
-        if(language=="hangul") {
-            t=Math.floor(typingCount * 120000 / (100 * timeCount));
-        } else {
-            t=Math.floor(typingCount * 60000 / (100 * timeCount));
-        }
+        if(language=="hangul") t=Math.floor(typingCount * 120000 / (100 * timeCount));
+        else t=Math.floor(typingCount * 60000 / (100 * timeCount));
         dispatch(setTypingSpeed(t));
         dispatch(increaseTimeCount());
     }, isRunning ? delay : null);
 
+    //진행 다 되면 result페이지 이동
     useEffect(() => {
         if (progress == goalProgress) {
             dispatch(setPageMode("result"));
         }
     }, [progress]);
 
+    //maxSpeed 변경
     useEffect(() => {
         if(lastSpeed>maxSpeed)
             setMaxSpeed(lastSpeed);
@@ -67,6 +64,7 @@ function ScoreContainer(props) {
     const testData = [
         { uv: speed }
     ];
+
     return (
         <ScoreField
             testData={testData}

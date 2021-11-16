@@ -6,7 +6,7 @@ import SettingField from "./settingField"
 
 //set reducers
 import { setContent, setLanguage, setLoading, setMode, setSetting } from "reducers/setting";
-import { setText, setNextText } from 'reducers/text/text';
+import { setText, setNextText, resetText } from 'reducers/text/text';
 import { resetPageCount, setLongTextContent } from 'reducers/text/longText';
 import { setPageMode } from "reducers/pageMode";
 
@@ -33,10 +33,16 @@ const SettingContainer = () => {
     const [isModeSelecting, setIsModeSelecting] = useState(false);
 
     const isFinished = useSelector(state => state.typingProgress.isFinished);
-    const { pageIndex, pageCount } = useSelector(state => ({
-        pageIndex: state.longText.pageIndex,
-        pageCount: state.longText.pageCount
-    }));
+    
+    //initalize
+    useEffect(() => {
+        dispatch(resetTypingSpeed());
+        dispatch(resetTyipingAccuracy());
+        dispatch(resetPageCount());
+        dispatch(resetBackSpace());
+        dispatch(resetTypingProgress());
+        dispatch(resetText());
+    }, []);
 
     useEffect(() => {
         if (selectedMode == "longText") {

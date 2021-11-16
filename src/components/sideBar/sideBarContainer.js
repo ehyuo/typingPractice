@@ -1,12 +1,8 @@
 import "./sideBar.css";
-import img from "../../img/setting.png";
-import SettingContainer from "../setting/settingContainer";
-import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { setPageMode } from "../../reducers/pageMode";
 import { useEffect, useState } from "react";
 
-import { CSSTransition } from "react-transition-group";
 const SideBarContainer = () => {
   const dispatch = useDispatch();
   const pageMode = useSelector((state) => state.pageMode.pageMode);
@@ -17,8 +13,7 @@ const SideBarContainer = () => {
   useEffect(() => {
     if (pageMode == "index") setPosition(35);
     if (pageMode == "setting") setPosition(85);
-    if (pageMode == "typing") setPosition(135);
-    if (pageMode == "scoreChart") setPosition(185);
+    if (pageMode == "scoreChart") setPosition(135);
   }, [pageMode]);
 
   return (
@@ -51,13 +46,6 @@ const SideBarContainer = () => {
             dispatch(setPageMode("setting"));
           }}
         >
-          <div>Setting</div>
-        </button>
-        <button
-          onClick={() => {
-            dispatch(setPageMode("typing"));
-          }}
-        >
           <div>Practice</div>
         </button>
         <button
@@ -68,9 +56,7 @@ const SideBarContainer = () => {
           <div>Scores</div>
         </button>
         <button
-          onClick={() => {
-            setPosition(185);
-          }}
+          
         >
           <div>About</div>
         </button>

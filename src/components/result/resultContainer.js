@@ -12,7 +12,6 @@ import Axios from 'axios';
 import { setPageMode } from 'reducers/pageMode';
 
 const ResultContainer = (props) => {
-    let history = useHistory();
     const dispatch = useDispatch();
 
     const [name, setName] = useState("");

@@ -29,10 +29,12 @@ const InputContainer = (props) => {
   }));
 
   //else
-  const mode = useSelector(state => state.setting.mode);
-  const content = useSelector(state => state.setting.content);
-  const language = useSelector(state => state.setting.language);
-
+  const { mode, content, language } = useSelector(state => ({
+    mode: state.setting.mode,
+    content: state.setting.content,
+    language: state.setting.language
+  }))
+  
   const typingCount = useSelector(state => state.interval.typingCount);
   //input
   const onInput = (e) => {
