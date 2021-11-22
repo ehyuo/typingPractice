@@ -42,8 +42,8 @@ const IndexContainer = () => {
 
     return (
         <div class="index">
-            <h3>typingPractice</h3>
-            <div class="middleComponent">
+            <h3>TypingPractice</h3>
+            <div class="simple-info">
                 <SimpleResultChart
                     recordList={recordList}/>
                 <ContentCount 

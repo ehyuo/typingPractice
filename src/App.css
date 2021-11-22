@@ -4,13 +4,22 @@
 div{
   margin-top: 0px;
 }
-.app {
+.app-dark {
   font-family: "Poppins", 'Noto Sans KR', sans-serif;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
   background-color: #2d3436;
 }
+
+.app-light {
+  font-family: "Poppins", 'Noto Sans KR', sans-serif;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: white;
+}
+
 
 .app hr {
   border: 1px solid #636e72;

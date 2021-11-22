@@ -1,6 +1,6 @@
 const SimpleResultChart = (props) => {
   return (
-    <div class="simpleResultChart">
+    <div class="simple-info-item">
       <table>
         <tbody>
         {props.recordList.map((row) => {

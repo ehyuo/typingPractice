@@ -1,13 +1,15 @@
 import "./titleBar.css";
-import closeIcon from "../../img/x.png"
-import minimizeIcon from "../../img/_.png"
+import closeIcon from "img/x.png"
+import minimizeIcon from "img/_.png"
+import logoIcon from "img/logo.png"
+import { useSelector } from "react-redux";
 const electron = window.require("electron");
 const ipc = electron.ipcRenderer;
 
 const TitleBarContainer = () => {
-
+    const isDarkMode = useSelector(state => state.darkMode.isDarkMode);
     return (
-        <div class="titleBar">
+        <div class={isDarkMode?"titleBar dark":"titleBar light"}>
             <div class="logo">
                 
             </div>

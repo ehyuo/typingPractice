@@ -88,7 +88,7 @@ const SettingField = (props) => {
                             <button class={props.selectedLongText == row.title ? "longCurrentBtn" : "longBtn"} onClick={() => {
                                 props.setSelectedLongText(row.title)
                             }}>
-                                <div class="longTextList">
+                                <div class="item">
                                     <div class="longTextTitle">
                                         {row.title}
                                     </div>

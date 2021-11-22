@@ -14,6 +14,7 @@ import longText from "./text/longText";
 import interval from "./interval";
 import setting from './setting';
 import pageMode from "./pageMode";
+import darkMode from "./darkMode";
 import fold from "./fold";
 
 export const reducer = combineReducers({
@@ -29,5 +30,6 @@ export const reducer = combineReducers({
     interval,
     setting,
     pageMode,
+    darkMode,
     fold
 })

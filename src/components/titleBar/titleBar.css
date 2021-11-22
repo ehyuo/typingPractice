@@ -8,14 +8,20 @@
     -webkit-user-select: none;
 }
 
+.dark {
+  background-color: #2d3436;
+}
+
+.light {
+  background-color: #ea8685;
+}
 .titleBar button {
-    color: #dfe6e9;
+  background-color: unset;
     border: unset;
     width: 30px;
     height: 25px;
     font-size: 18px;
     text-align: center;
-    background-color: #2d3436;
     transition: 0.25s all;
     -webkit-app-region: no-drag;
 }
@@ -40,6 +46,10 @@
   font-size: 18px;
 }
 
+.logo img {
+  width: 20px;
+  image-rendering: -webkit-optimize-contrast;
+}
 .functions {
   margin-right: 10px;
 }
