@@ -70,9 +70,10 @@ const SettingContainer = () => {
                     dispatch(setContent(res.data));
                     if (selectedMode == "longText") {
                         let arr = [];
-                        let count = parseInt(res.data[0].content.length / 300) + 1;
-                        for (let i = 0; i < parseInt(res.data[0].content.length / 300) + 1; i++) {
-                            arr.push(res.data[0].content.substring(i * 300, (i + 1) * 300).trim());
+                        const sliceLength = (selectedLanguage == "hangul")?150:250;
+                        let count = parseInt(res.data[0].content.length / sliceLength) + 1;
+                        for (let i = 0; i < parseInt(res.data[0].content.length / sliceLength) + 1; i++) {
+                            arr.push(res.data[0].content.substring(i * 300, (i + 1) * sliceLength).trim());
                         }
                         arr.push('');
                         dispatch(setLongTextContent(arr, count));
