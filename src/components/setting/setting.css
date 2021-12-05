@@ -1,25 +1,36 @@
 .setting{
     display: flex;
+    width: 400px;
     flex-direction: column;
     gap: 3px;
+    margin: 30px auto;
     text-align: center;
-    margin-top: 100px;
 }
 
-.setting table {
-    all: unset;
-}
-.setting tr {
-    padding-left: 10px;
+.setting__main-section {
+    display: flex;
+    gap: 3px;
+    margin: 0 auto;
 }
 
-.setting tr td {
-    padding: 5px;
+.setting__name {
+    color: rgb(151, 151, 151);
+    margin: 10px 0 10px 0;
 }
-.setting td a {
+
+.setting__name--long-text{
+    color: #dfe6e9;
+    margin: 13px;
+}
+
+.setting__page-count{
+    margin-right: 10px;
+    font-size: 15px;
     color: #798082;
+    margin: 13px;
 }
-.setting .settingList button{
+
+.setting__button{
     all: unset;
     color: #dfe6e9;
     width: 200px;
@@ -29,150 +40,61 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: 0.25s all;
 }
-
-.setting button:hover {
+.setting__button:hover {
     background-color: #4f565a;
 }
 
-.title {
-    color: rgb(151, 151, 151);
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-
-.setting td .currentBtn {
-    all: unset;
-    color: #dfe6e9;
-    width: 150px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: #4f565a;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: 0.25s all;
-}
-
-.confirm {
+.setting__button--long{
     display: flex;
-    margin: 0 auto;
-}
-.confirmBtn{
-    all: unset;
-    color: #dfe6e9;
-    width: 150px;
-    height: 50px;
-    margin: 0 auto;
-    border-radius: 5px;
-    text-align: center;
-    background-color: #374042;   
-    transition: 0.25s all;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
-.confirmBtn:hover {
-    background-color: #4f565a;
-}
-
-.longBtn {
-    all: unset;
-    color: #dfe6e9;
-    width: 300px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: #374042;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: 0.25s all;
-}
-
-.longBtn:hover {
-    background-color: #4f565a;
-}
-
-.longCurrentBtn {
-    all: unset;
-    color: #dfe6e9;
-    width: 300px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: #4f565a;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: 0.25s all;
-}
-
-
-.longTextList {
-    display: flex;
-    flex-direction: column;
-    margin: 0px auto;
-    gap: 3px;
-}
-
-.longTextList .item {
-    display: flex;
-    
     justify-content: space-between;
-}
-.longTextTitle {
-    margin-left: 20px;
-    font-size: 18px;
+    width: 100%;
 }
 
-.pageCount {
-    margin-right: 10px;
-    font-size: 15px;
-    color: #798082;
+.setting__button--selected {
+    background-color: #4f565a;
 }
-.mode {
+
+.setting__button--confirm {
+
+}
+
+.setting__list {
     display: flex;
-    
     flex-direction: column;
     gap: 3px;
 }
-.modeList {
-    display: flex;
+
+.setting__list--language {
     position: absolute;
-    top: 225px;
-    gap: 3px;
-    flex-direction: column;
-    width: 150px;
-}
-.language {
-    display: flex;
-    
-    flex-direction: column;
-    gap: 3px;
 }
 
-.languageList {
-    display: flex;
+.setting__list--mode {
     position: absolute;
-    top: 225px;
-    gap: 3px;
-    flex-direction: column;
-    width: 150px;
 }
 
-.settingList {
+.setting__list--long-text {
+    width: 100%;
+}
+
+.setting__confirm {
     display: flex;
-    flex-direction: raw;
-    gap: 3px;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
-.alert1-enter {
+.setting__dropdown-enter {
     opacity: 0;
     transform: translate(0, -30px);
-  }
-  .alert1-enter-active {
+}
+.setting__dropdown-enter-active {
     opacity: 1;
     transform: translateX(0);
     transition: opacity 300ms, transform 200ms;
-  }
-
-  .alert1-exit {
+}
+.setting__dropdown-exit {
     opacity: 1;
-  }
-  .alert1-exit-active {
+}
+.setting__dropdown-exit-active {
     opacity: 0;
     transform: translate(0, -30px);
     transition: opacity 300ms, transform 200ms;
-  }
+}

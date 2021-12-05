@@ -1,0 +1,42 @@
+.score{
+  display: flex;
+  gap: 10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  background-color: #374042;
+  border-radius: 5px;
+  height: 100px;
+}
+
+.score__item{
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: calc(100%/4);
+}
+
+.score__name{
+  font-size: 14px;
+  color: #868e96;
+}
+
+.score__value{
+  font-size: 24px;
+  color: #dfe6e9;
+}
+
+.score__graph{
+  width: 80%;
+  margin-top: 10px;
+  height: 10px;
+  background: #b2bec3;
+  border-radius: 2px;
+}
+
+.score__graph span {
+  height: 10px;
+  display: block;
+  background: #636e72;
+  border-radius: 2px;
+}

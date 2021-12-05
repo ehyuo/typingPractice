@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Sentence from './sentence';
-import Word from './word';
-import LongText from './longText';
+
 
 import { textToResultText } from "reducers/text/text";
 
@@ -25,6 +23,7 @@ const TextContainer = (props) => {
     //else
     const mode = useSelector(state => state.setting.mode);
 
+    //
     useEffect(() => {
         dispatch(textToResultText());
     }, [text]);
@@ -46,28 +45,23 @@ const TextContainer = (props) => {
 
     if (mode == "sentence") {
         return (
-            <Sentence
-                printResultText={printResultText()}
-                text={text}
-                nextSentence={nextText}>
-            </Sentence>
+            <div class="typing__text typing__text--sentence">
+                <div>{printResultText()}</div>
+                <a id="nextSentence">{nextText}</a>
+            </div>
         )
     } else if (mode == "word") {
         return (
-            <Word
-                printResultText={printResultText()}
-                text={text}
-                nextWord={nextText}>
-            </Word>
+            <div class="typing__text typing__text--word">
+                <a class="wordnow">{printResultText()}</a>
+            </div>
         )
     } else if (mode == "longText") {
         return (
-            <LongText
-                printResultText={printResultText()}
-                text={text}
-                pageIndex={pageIndex}
-                pageCount={pageCount}>
-            </LongText>
+            <div class="typing__text typing__text--long-text">
+                <div>{printResultText()}</div>
+                <div class="typing__page-count">{pageIndex + 1}/{pageCount}</div>
+            </div>
         )
     }
 }

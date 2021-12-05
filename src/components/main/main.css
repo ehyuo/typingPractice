@@ -1,16 +1,3 @@
-body{
-  margin: 0px;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    height: 575px;
-    margin: 0px;
-  }  
-
   .right{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -25,14 +12,15 @@ body{
     display: flex;
   }
 
-  .foldBtn{
+  .wrapper__button{
     all: unset;
+    color: #dfe6e9;
     position: absolute;
     top: 450px;
     text-align: center;
     width: 30px;
     height: 30px;
-    color: #dfe6e9;
+    
     background-color: #2d3436;
     border-collapse: collapse;
     border-top: 1px solid #505050;
@@ -44,7 +32,7 @@ body{
     transition: 0.25s all;
   }
 
-  .foldBtn:hover {
+  .wrapper__button:hover {
     background-color: #374042;
     border-left: 1px solid #374042;
   }

@@ -1,26 +1,26 @@
 import './setting.css';
 import { CSSTransition } from 'react-transition-group';
 import React, { useState } from 'react';
-import { useEffect } from 'react';
 
 const SettingField = (props) => {
     return (
         <div class="setting">
-            <div class="settingList">
-                <div class="language">
-                    <div class="title">Language</div>
+            <div class="setting__main-section">
+                <div class="setting__item">
+                    <div class="setting__name">Language</div>
                     <button
-                        class="languageBtn"
+                        class="setting__button"
                         onClick={() => {
                             props.setIsLanguageSelecting(!props.isLanguageSelecting)
-                        }}>{props.selectedLanguage == "english" ? "English" : "한글" }</button>
+                        }}>{props.selectedLanguage == "english" ? "English" : "한글"}</button>
                     <CSSTransition
                         in={props.isLanguageSelecting}
                         timeout={500}
-                        classNames="alert1"
+                        classNames="setting__dropdown"
                         unmountOnExit>
-                        <div class="languageList">
+                        <div class="setting__list setting__list--language">
                             <button
+                                class="setting__button"
                                 onClick={() => {
                                     props.setSelectedLanguage("english")
                                     props.setIsLanguageSelecting(false)
@@ -28,6 +28,7 @@ const SettingField = (props) => {
                                 English
                             </button>
                             <button
+                                class="setting__button"
                                 onClick={() => {
                                     props.setSelectedLanguage("hangul")
                                     props.setIsLanguageSelecting(false)
@@ -38,10 +39,10 @@ const SettingField = (props) => {
                     </CSSTransition>
                 </div>
 
-                <div class="mode">
-                    <div class="title">Mode</div>
+                <div class="setting__item">
+                    <div class="setting__name">Mode</div>
                     <button
-                        class="modeBtn"
+                        class="setting__button"
                         onClick={() => {
                             props.setIsModeSelecting(!props.isModeSelecting)
                         }}>{props.selectedMode == "sentence" ? "Sentence" :
@@ -49,25 +50,25 @@ const SettingField = (props) => {
                     <CSSTransition
                         in={props.isModeSelecting}
                         timeout={500}
-                        classNames="alert1"
+                        classNames="setting__dropdown"
                         unmountOnExit>
-                        <div class="modeList">
+                        <div class="setting__list setting__list--mode">
                             <button
-                                class={props.selectedMode == "sentence" ? "currentBtn" : "Btn"}
+                                class="setting__button"
                                 onClick={() => {
                                     props.setSelectedMode("sentence")
                                     props.setIsModeSelecting(false)
                                 }}>Sentence
                             </button>
                             <button
-                                class={props.selectedMode == "word" ? "currentBtn" : "Btn"}
+                                class="setting__button"
                                 onClick={() => {
                                     props.setSelectedMode("word")
                                     props.setIsModeSelecting(false)
                                 }}>Word
                             </button>
                             <button
-                                class={props.selectedMode == "longText" ? "currentBtn" : "Btn"}
+                                class="setting__button"
                                 onClick={() => {
                                     props.setSelectedMode("longText")
                                     props.setIsModeSelecting(false)
@@ -79,38 +80,39 @@ const SettingField = (props) => {
             </div>
 
 
-            {props.selectedMode == "longText" ? <a class="title">LongText Lists<br /></a> : ""}
-            <div class="longTextList">
+            {props.selectedMode == "longText" ? <a class="setting__name">LongText Lists<br /></a> : ""}
+            <div class="setting__list setting__list--long-text">
 
                 {props.selectedMode == "longText" ?
                     (props.longTextList.map(row => {
                         return (
-                            <button class={props.selectedLongText == row.title ? "longCurrentBtn" : "longBtn"} onClick={() => {
-                                props.setSelectedLongText(row.title)
-                            }}>
-                                <div class="item">
-                                    <div class="longTextTitle">
+                            <button
+                                class={props.selectedLongText == row.title ?
+                                    "setting__button setting__button--long setting__button--selected" :
+                                    "setting__button setting__button--long"} 
+                                onClick={() => { props.setSelectedLongText(row.title) }}>
+                                    <div class="setting__name--long-text">
                                         {row.title}
                                     </div>
-                                    <div class="pageCount">
+                                    <div class="setting__page-count">
                                         {Math.floor((row.content.length / 200) + 1)}pages
                                     </div>
-                                </div>
+
                             </button>
                         )
 
                     })) : ""}
             </div>
-            <div class="confirm">
-            <button
-                class="confirmBtn"
-                onClick={() => {
-                    props.onClickConfirm()
-                }}>
-                Confirm
-            </button>
+            <div class="setting__confirm">
+                <button
+                    class="setting__button setting__button--confirm"
+                    onClick={() => {
+                        props.onClickConfirm()
+                    }}>
+                    Confirm
+                </button>
             </div>
-            
+
             {props.notice == true ? <div class="notice">There are unselected items</div> : ""}
 
 

@@ -6,7 +6,7 @@ import "./typing.css";
 
 const TypingContainer = () => {
     return (
-        <div class="typingContainer">
+        <div class="typing">
             <ScoreContainer />
             <TextContainer />
             <InputContainer />            

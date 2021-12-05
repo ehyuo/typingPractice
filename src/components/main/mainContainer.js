@@ -9,28 +9,36 @@ import ScoreChartContainer from "../scoreChart/scoreChartContainer";
 import { setIsFolded } from "reducers/fold";
 
 const MainContainer = () => {
-  const pageMode = useSelector((state) => state.pageMode.pageMode);
-  const isFolded = useSelector(state => state.fold.isFolded);
   const dispatch = useDispatch();
+  const pageMode = useSelector(state => state.pageMode.pageMode);
+  const isFolded = useSelector(state => state.fold.isFolded);
 
   const wrapperStyle = {
-    width: isFolded?"85%":"100%",
+    display: "flex",
+    flexDirection: "column",
     transition: "0.25s all",
-    transitionDelay: isFolded?"0.1s":"0s"
+    transitionDelay: isFolded?"0.1s":"0s",
+    width: isFolded?"85%":"100%"
   }
+
+  const returnFoldBtn = () => {
+    return (
+      <button
+      onClick={() => {
+        dispatch(setIsFolded(!isFolded))
+      }}
+      class="wrapper__button">M</button>
+    )
+  }
+
   if (pageMode == "index") {
     return (
         <div 
           class="wrapper"
           style={wrapperStyle}>
           <IndexContainer />
-          <button
-            onClick={() => {
-              dispatch(setIsFolded(!isFolded))
-            }}
-            class="foldBtn">M</button>
+          {returnFoldBtn()}
         </div>
-
     );
   } else if (pageMode == "setting") {
     return (
@@ -38,11 +46,7 @@ const MainContainer = () => {
         class="wrapper"
         style={wrapperStyle}>
         <SettingContainer />
-        <button
-            onClick={() => {
-              dispatch(setIsFolded(!isFolded))
-            }}
-            class="foldBtn">M</button>
+        {returnFoldBtn()}
       </div>
     );
   } else if (pageMode == "typing") {
@@ -51,11 +55,7 @@ const MainContainer = () => {
         class="wrapper"
         style={wrapperStyle}>
         <TypingContainer />        
-        <button
-            onClick={() => {
-              dispatch(setIsFolded(!isFolded))
-            }}
-            class="foldBtn">M</button>
+        {returnFoldBtn()}
       </div>
     );
   } else if (pageMode == "result") {
@@ -64,11 +64,7 @@ const MainContainer = () => {
         class="wrapper"
         style={wrapperStyle}>
         <ResultContainer />
-        <button
-            onClick={() => {
-              dispatch(setIsFolded(!isFolded))
-            }}
-            class="foldBtn">M</button>
+        {returnFoldBtn()}
       </div>
     );
   } else if (pageMode == "scoreChart") {
@@ -77,11 +73,7 @@ const MainContainer = () => {
         class="wrapper"
         style={wrapperStyle}>
         <ScoreChartContainer />
-        <button
-            onClick={() => {
-              dispatch(setIsFolded(!isFolded))
-            }}
-            class="foldBtn">M</button>
+        {returnFoldBtn()}
       </div>
     );
   }
