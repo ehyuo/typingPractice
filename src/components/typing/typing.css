@@ -29,7 +29,7 @@
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   color: #dfe6e9;
   font-size: 18px;
-  height: 275px;
+  height: calc(100vh - 270px);
   line-height: 50px;
   padding: 30px;
 }

@@ -1,15 +1,5 @@
-  .right{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    float: right;
-  }
-
   button {
     -webkit-app-region: no-drag;
-  }
-
-  .mainArea{
-    display: flex;
   }
 
   .wrapper__button{
