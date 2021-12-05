@@ -18,7 +18,7 @@ const MainContainer = () => {
     flexDirection: "column",
     transition: "0.25s all",
     transitionDelay: isFolded?"0.1s":"0s",
-    width: isFolded?"85%":"100%"
+    width: isFolded?"85%":"100%",
   }
 
   const returnFoldBtn = () => {

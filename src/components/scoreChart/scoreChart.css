@@ -1,40 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap');
 
-.scoreChartContainer{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-}
-
-.scores {
+.score-chart {
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #dfe6e9;
   display: flex;
   flex-direction: column;
-  margin: 30px auto;
-  color: #dfe6e9; 
-  border-radius: 5px;
   gap: 3px;
+  width: 100%;
+  padding: 10px;
 }
 
-.scores table {
+.score-chart__scores {
   all:unset;
-  width: 100%;
   border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  width: 100%;
 }
 
-.scores table tr {
-  
+.score-chart__table-head {
+  font-weight: 600;
 }
 
-.scores .common {
+.score-chart__raw {
+  width: 100%;
+}
+.score-chart__raw--common {
   background-color: #374042;
 }
 
-
-.scores th {
-  padding: 15px;
-}
-.scores table td {
+.score-chart__scores td {
+  width: calc(100%/5);
   padding: 10px;
 }
 .pages {

@@ -2,7 +2,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 
 const ResultChart = (props) => {
     return (
-        <div class="resultChart">
+        <div class="result__chart">
             <LineChart style={{
                 margin: "30px auto"
             }} width={400} height={300} data={props.speedData}>
