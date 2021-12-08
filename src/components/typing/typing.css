@@ -27,14 +27,21 @@
   background-color: #374042;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  box-sizing: border-box;
   color: #dfe6e9;
   font-size: 18px;
-  height: calc(100vh - 270px);
+  height: calc(100vh - 210px);
   line-height: 50px;
   padding: 30px;
 }
+.typing__next-text{
+  color: #7c878b;
+  
+}
 .typing__text--sentence{
-
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .typing__text--word{
   
@@ -45,7 +52,7 @@
   justify-content: space-between;
 }
   
-#typing__page-count{
+.typing__page-count{
   font-size: 15px;
   text-align: center;
 }

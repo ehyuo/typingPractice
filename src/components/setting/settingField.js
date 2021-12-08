@@ -7,12 +7,11 @@ const SettingField = (props) => {
         <div class="setting">
             <div class="setting__main-section">
                 <div class="setting__item">
-                    <div class="setting__name">Language</div>
                     <button
                         class="setting__button"
                         onClick={() => {
                             props.setIsLanguageSelecting(!props.isLanguageSelecting)
-                        }}>{props.selectedLanguage == "english" ? "English" : "한글"}</button>
+                        }}>{props.selectedLanguage}</button>
                     <CSSTransition
                         in={props.isLanguageSelecting}
                         timeout={500}
@@ -25,7 +24,7 @@ const SettingField = (props) => {
                                     props.setSelectedLanguage("english")
                                     props.setIsLanguageSelecting(false)
                                 }}>
-                                English
+                                english
                             </button>
                             <button
                                 class="setting__button"
@@ -40,13 +39,11 @@ const SettingField = (props) => {
                 </div>
 
                 <div class="setting__item">
-                    <div class="setting__name">Mode</div>
                     <button
                         class="setting__button"
                         onClick={() => {
                             props.setIsModeSelecting(!props.isModeSelecting)
-                        }}>{props.selectedMode == "sentence" ? "Sentence" :
-                            props.selectedMode == "word" ? "Word" : "LongText"}</button>
+                        }}>{props.selectedMode}</button>
                     <CSSTransition
                         in={props.isModeSelecting}
                         timeout={500}
@@ -95,7 +92,7 @@ const SettingField = (props) => {
                                         {row.title}
                                     </div>
                                     <div class="setting__page-count">
-                                        {Math.floor((row.content.length / 200) + 1)}pages
+                                        {Math.floor((row.content.length / (props.selectedLanguage == "hangul"?150:250)) + 1)}pages
                                     </div>
 
                             </button>

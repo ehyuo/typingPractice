@@ -62,18 +62,22 @@
     display: flex;
     flex-direction: column;
     gap: 3px;
+    margin-top: 3px;
+    position: absolute;
 }
 
 .setting__list--language {
-    position: absolute;
+    
 }
 
 .setting__list--mode {
-    position: absolute;
+    
 }
 
 .setting__list--long-text {
+    position: static;
     width: 100%;
+    
 }
 
 .setting__confirm {

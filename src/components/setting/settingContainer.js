@@ -23,8 +23,8 @@ const SettingContainer = () => {
 
     const [notice, setNotice] = useState(false);
 
-    const [selectedMode, setSelectedMode] = useState("sentence");
-    const [selectedLanguage, setSelectedLanguage] = useState("english");
+    const [selectedMode, setSelectedMode] = useState("Mode");
+    const [selectedLanguage, setSelectedLanguage] = useState("Language");
     const [selectedLongText, setSelectedLongText] = useState("");
 
     const [longTextList, setLongTextList] = useState([]);
@@ -63,7 +63,7 @@ const SettingContainer = () => {
             Axios.get(
                 (selectedMode == "longText") ? 
                 `/contents/${selectedLanguage}/${selectedMode}/${selectedLongText}`:
-                `/contents/${selectedLanguage}/${selectedMode}`,    
+                `/contents/${selectedLanguage}/${selectedMode}/null`,    
                 null, 
                 { withCredentials: true })
                 .then((res) => {
@@ -73,7 +73,7 @@ const SettingContainer = () => {
                         const sliceLength = (selectedLanguage == "hangul")?150:250;
                         let count = parseInt(res.data[0].content.length / sliceLength) + 1;
                         for (let i = 0; i < parseInt(res.data[0].content.length / sliceLength) + 1; i++) {
-                            arr.push(res.data[0].content.substring(i * 300, (i + 1) * sliceLength).trim());
+                            arr.push(res.data[0].content.substring(i * sliceLength, (i + 1) * sliceLength).trim());
                         }
                         arr.push('');
                         dispatch(setLongTextContent(arr, count));
@@ -105,7 +105,9 @@ const SettingContainer = () => {
     const onClickConfirm = async () => {
         if (selectedLanguage == "" ||
             selectedMode == "" ||
-            (selectedMode == "longText" && selectedLongText == "")) {
+            (selectedMode == "longText" && selectedLongText == "" ||
+            selectedMode == "Mode" ||
+            selectedLanguage == "Language")) {
             setNotice(true);
         } else {
             contentProcessing();
@@ -140,7 +142,7 @@ const SettingContainer = () => {
             >
             </SettingField>
             <button onClick={() => {
-                Axios.post("http://localhost:3001/contents/createContent",
+                Axios.post("http://localhost:3001/contents/createContent/못된 송아지 엉덩이에 뿔이 난다.",
                 null,
                 { withCredentials: true })
             }}>d</button>

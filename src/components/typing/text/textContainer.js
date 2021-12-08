@@ -47,7 +47,7 @@ const TextContainer = (props) => {
         return (
             <div class="typing__text typing__text--sentence">
                 <div>{printResultText()}</div>
-                <a id="nextSentence">{nextText}</a>
+                <div class="typing__next-text">{nextText}</div>
             </div>
         )
     } else if (mode == "word") {

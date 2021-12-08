@@ -1,20 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap');
 
 .result{
+  box-sizing: border-box;
   display: flex;
   gap: 10px;
-  width: 100%;
-  height: 520px;
+  height: calc(100vh - 25px);
   padding: 10px;
-  box-sizing: border-box;
+  width: 100%;
 }
 
 .result__chart{
-  width: 60%;
-  height: 100%;
-  border-radius: 3px;
   background-color: #374042;
+  border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 10px 30px 0px 0px;
+  width: 60%;
 }
 
 
@@ -23,32 +25,24 @@
   width: 40%;
   height: 100%;
   flex-direction: column;
-  gap: 3px;
+  gap: 5px;
 }
-.resultInfo{
-  padding: 3px;
+
+.result__info{
+  padding: 10px 0 10px 20px;
   height: 80%;
   border-radius: 3px;
   background-color: #374042;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
-
-.resultInfo table {
-  margin: 0 auto;
-}
-.resultInfo table td {
-  padding: 5px;
-}
-.resultType {
+.result__name {
  color: #b2bec3; 
  font-size: 13px;
 }
-.resultLanguage {
+.result__value {
   color: #dfe6e9;
   font-size: 20px;
 }
-
-
 .resultSend{
   display: flex;
   gap: 3px;

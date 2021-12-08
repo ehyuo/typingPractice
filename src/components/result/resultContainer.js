@@ -88,13 +88,7 @@ const ResultContainer = (props) => {
                             dispatch(setPageMode("setting"));
                         }}> Try it again</button>
                 </div>
-                <div class="scoreChartBtn">
-                    <button
-                        class="scoreChart"
-                        onClick={() => {
-                            dispatch(setPageMode("scoreChart"));
-                        }}>Score Chart</button>
-                </div>
+                
             </div>
 
 
