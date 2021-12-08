@@ -7,7 +7,7 @@ import SettingField from "./settingField"
 //set reducers
 import { setContent, setLanguage, setLoading, setMode, setSetting } from "reducers/setting";
 import { setText, setNextText, resetText } from 'reducers/text/text';
-import { resetPageCount, setLongTextContent } from 'reducers/text/longText';
+import { resetPageCount, setLongTextContent, setLongTextTitle } from 'reducers/text/longText';
 import { setPageMode } from "reducers/pageMode";
 
 //reset reducers
@@ -76,6 +76,7 @@ const SettingContainer = () => {
                             arr.push(res.data[0].content.substring(i * sliceLength, (i + 1) * sliceLength).trim());
                         }
                         arr.push('');
+                        dispatch(setLongTextTitle(selectedLongText));
                         dispatch(setLongTextContent(arr, count));
                         dispatch(setText(arr[0]));
                         dispatch(setNextText(arr[1]));
