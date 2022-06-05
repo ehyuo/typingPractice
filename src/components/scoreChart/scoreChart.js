@@ -1,31 +1,29 @@
 const ScoreChart = (props) => {
     return (
         <div class="score-chart">
-            <table class="score-chart__scores">
-                <tbody>
-                    <tr class="score-chart__table-head">
-                        <td>Name</td>
-                        <td>Language</td>
-                        <td>Mode</td>
-                        <td>Speed</td>
-                        <td>Accuracy</td>
-                        <td>Backspace</td>
-                    </tr>
+            <div class="score-chart__scores">
+                    <div class="score-chart__line">
+                        <div class="score-chart__item score-chart__item--title">Name</div>
+                        <div class="score-chart__item score-chart__item--title">Language</div>
+                        <div class="score-chart__item score-chart__item--title">Mode</div>
+                        <div class="score-chart__item score-chart__item--title">Speed</div>
+                        <div class="score-chart__item score-chart__item--title">Accuracy</div>
+                        <div class="score-chart__item score-chart__item--title">Backspace</div>
+                    </div>
                     {props.isLoading ? <div style={{ fontSize: "30px" }}>Loading</div> : props.recordPages[props.currentPage].map((row, idx) => {
-                        const className = ((idx % 2) == 0 ? "score-chart__raw score-chart__raw--common" : "score-chart__raw score-chart__raw--alter")
+                        const className = ((idx % 2) == 0 ? "score-chart__line score-chart__line--common" : "score-chart__line score-chart__line--alter")
                         return (
-                            <tr class={className}>
-                                <td>{row.name}</td>
-                                <td>{row.language}</td>
-                                <td>{row.mode}</td>
-                                <td>{row.speed}</td>
-                                <td>{row.accuracy}</td>
-                                <td>{row.backspace}</td>
-                            </tr>
+                            <div class={className}>
+                                <div class="score-chart__item score-chart__item--string">{row.name}</div>
+                                <div class="score-chart__item score-chart__item--string">{row.language}</div>
+                                <div class="score-chart__item score-chart__item--string">{row.mode}</div>
+                                <div class="score-chart__item score-chart__item--int">{row.speed} <div class="unit">CPM</div></div>
+                                <div class="score-chart__item score-chart__item--int">{row.accuracy}<div class="unit">%</div></div>
+                                <div class="score-chart__item score-chart__item--int">{row.backspace}<div class="unit">times</div> </div>
+                            </div>
                         )
                     })}
-                </tbody>
-            </table>
+            </div>
             <div class="pages">
             {props.isLoading ? "" : props.recordPages.map((row, idx) => {
                 return (

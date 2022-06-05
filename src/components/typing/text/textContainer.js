@@ -32,7 +32,7 @@ const TextContainer = (props) => {
         return (
             resultText.map((row, idx) => {
                 if (row.differ == true) {
-                    return (<a style={{ color: "#469536" }}>{row.letter}</a>);
+                    return (<a style={{ color: "#404040" }}>{row.letter}</a>);
                 } else if (row.differ == false) {
                     return (<a style={{ color: "#ff5232" }}>{row.letter}</a>);
                 } else {

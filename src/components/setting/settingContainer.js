@@ -143,7 +143,7 @@ const SettingContainer = () => {
             >
             </SettingField>
             <button onClick={() => {
-                Axios.post("http://localhost:3001/contents/createContent/못된 송아지 엉덩이에 뿔이 난다.",
+                Axios.post("/contents/createContent/못된 송아지 엉덩이에 뿔이 난다.",
                 null,
                 { withCredentials: true })
             }}>d</button>

@@ -2,27 +2,32 @@
     -webkit-app-region: no-drag;
   }
 
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  color: #dfe6e9;
+  margin: 6px 0px 0 0;
+}
   .wrapper__button{
     all: unset;
     color: #dfe6e9;
     position: absolute;
-    top: 450px;
+    top: 50px;
+    left: 50px;
     text-align: center;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     
-    background-color: #2d3436;
-    border-collapse: collapse;
-    border-top: 1px solid #505050;
-    border-right: 1px solid #505050;
-    border-left: 1px solid #2d3436;
-    border-bottom: 1px solid #505050;
-    border-top-right-radius: 5px ;
-    border-bottom-right-radius: 5px;
+    background-color: #282828;
+    border: 1px solid #404040;
+    border-radius: 5px;
     transition: 0.25s all;
   }
 
   .wrapper__button:hover {
-    background-color: #374042;
-    border-left: 1px solid #374042;
+    background-color: #404040;
+
   }

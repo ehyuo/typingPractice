@@ -8,7 +8,6 @@ import "./typing.css";
 const TypingContainer = () => {
     return (
         <div class="typing">
-            <InfoContainer />
             <ScoreContainer />
             <TextContainer />
             <InputContainer />            

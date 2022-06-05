@@ -3,7 +3,7 @@
     "username": "ehyuo",
     "password": "3930dhkd",
     "database": "typingPractice",
-    "host": "database-1.cw2vcc8mnanv.us-east-2.rds.amazonaws.com",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {

@@ -1,34 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@700&display=swap');
 .score-chart {
   border-radius: 5px;
   box-sizing: border-box;
-  color: #dfe6e9;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 3px;
-  width: 100%;
+  width: 80%;
   padding: 10px;
+  margin: 10px auto;
 }
 
 .score-chart__scores {
   all:unset;
+  background-color: #181818;
   border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   width: 100%;
 }
 
-.score-chart__table-head {
-  font-weight: 600;
-}
-
-.score-chart__raw {
+.score-chart__line {
+  display: flex;
   width: 100%;
 }
-.score-chart__raw--common {
-  background-color: #374042;
+.score-chart__item {
+  height: 50px;
+  line-height: 50px;
+  margin-left: 15px;
+  width: calc(100%/6); 
 }
-
+.score-chart__item--title {
+  font-family: 'Mulish', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  margin-left: 0px;
+}
+.score-chart__item--int {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+  margin-right: 15px;
+}
+.score-chart__item--string{
+  text-align: center;
+}
+.score-chart__line {
+  width: 100%;
+}
+.score-chart__line--common {
+  background-color: #242424;
+}
+.unit {
+  color: #B3B3B3;
+  margin-left: 4px;
+  line-height: 54px;
+  font-size: 12px;
+}
 .score-chart__scores td {
   width: calc(100%/5);
   padding: 10px;
@@ -48,13 +77,13 @@
 }
 
 .pageBtn:hover {
-  background-color: #374042;
+  background-color: #242424;
 }
 
 
 .back {
  all: unset;
- color: #dfe6e9; 
+ color: #ffffff; 
  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
  width: 50px;
  height: 50px;

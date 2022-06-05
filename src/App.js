@@ -20,3 +20,5 @@ const App = () => {
 }
 
 export default App;
+
+//color: https://blog.karenying.com/posts/50-shades-of-dark-mode-gray

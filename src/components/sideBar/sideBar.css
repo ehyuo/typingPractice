@@ -1,11 +1,15 @@
 .sideBar{
-    display: flex;
+    background-color: #282828;
+    color: #ffffff;
     flex-direction: row;
-    
-    height: calc(100vh);
-    border-right: 1px solid #505050;
-    border-collapse: collapse;
+    height: 400px;
+    position: absolute;
+    left: 50px;
+    top: 100px;
+    border: 1px solid #505050;
+    border-radius: 5px;
     box-sizing: border-box;
+    width: 15%;
 }
 .selectedPageMode {
     margin-left: 1px;
@@ -34,12 +38,12 @@
 }
 
 .sideBar button:hover{
-    background-color: #374042;
+    background-color: #404040;
 }
 
 .sideBar button div {
     margin-left: 10px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Mulish', sans-serif;
 }
 
 .settingBtn img{

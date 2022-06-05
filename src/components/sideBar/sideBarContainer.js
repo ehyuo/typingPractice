@@ -1,28 +1,30 @@
 import "./sideBar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setPageMode } from "../../reducers/pageMode";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const SideBarContainer = () => {
   const dispatch = useDispatch();
   const pageMode = useSelector((state) => state.pageMode.pageMode);
   const isFolded = useSelector((state) => state.fold.isFolded);
 
-  const [position, setPosition] = useState(35);
+
+  const [position, setPosition] = useState(65);
 
   useEffect(() => {
-    if (pageMode == "index") setPosition(35);
-    if (pageMode == "setting") setPosition(85);
-    if (pageMode == "scoreChart") setPosition(135);
+    if (pageMode == "index") setPosition(65);
+    if (pageMode == "setting") setPosition(115);
+    if (pageMode == "scoreChart") setPosition(165);
   }, [pageMode]);
-
+  
+  
   return (
     <div
       class="sideBar"
       style={{
-        width: isFolded ? "15%" : "0%",
-        color: isFolded ? "#dfe6e9": "#2d3436",
-        transition: "width 0.3s, color 0.1s",
+        visibility: isFolded? "visible" : "hidden",
+        opacity: isFolded? 1 : 0,
+        transition: "0.2s all",
       }}
     >
       <div

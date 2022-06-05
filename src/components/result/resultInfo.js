@@ -1,30 +1,27 @@
 const ResultInfo = (props) => {
     return (
-        <table class="result__info">
-            <tbody>
-                <tr>
-                    <td><a class="result__name">Language</a></td>
-                    <td><a class="result__value">{props.language}</a></td>
-                </tr>
-                <tr>
-                    <td><a class="result__name">Mode</a></td>
-                    <td><a class="result__value">{props.mode}</a></td>
-                </tr>
-                <tr>
-                    <td><a class="result__name">Speed Average</a></td>
-                    <td><a class="result__value">{props.speedAverage}</a></td>
-
-                </tr>
-                <tr>
-                    <td><a class="result__name">Accuracy Average</a></td>
-                    <td><a class="result__value">{props.accuracyAverage}%</a></td>
-                </tr>
-                <tr>
-                    <td><a class="result__name">Backspace Count </a></td>
-                    <td><a class="result__value">{props.backspaceCount}</a></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="result__info">
+            <div class="result__line">
+                <span class="result__name">Language</span>
+                <span class="result__value">{props.language}</span>
+            </div >
+            <div class="result__line">
+                <span class="result__name">Mode</span>
+                <span class="result__value">{props.mode}</span>
+            </div>
+            <div class="result__line">
+                <span class="result__name">Speed Average</span>
+                <span class="result__value">{props.speedAverage}<div class="result__unit"> CPM</div></span>
+            </div>
+            <div class="result__line">
+                <span class="result__name">Accuracy Average</span>
+                <span class="result__value">{props.accuracyAverage} <div class="result__unit">%</div></span>
+            </div>
+            <div class="result__line">
+                <span class="result__name">Backspace Count </span>
+                <span class="result__value">{props.backspaceCount}<div class="result__unit"> times</div></span>
+            </div>
+        </div>
     )
 }
 

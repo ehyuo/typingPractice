@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 const SettingField = (props) => {
     return (
         <div class="setting">
+            <div class="setting__preview"></div>
             <div class="setting__main-section">
                 <div class="setting__item">
                     <button

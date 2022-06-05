@@ -1,18 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
 .typing {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: 10px;
+  margin: 10px auto;
+  width: 80%;
 }
 
 .typing__input{
-  background-color: #374042;
+  background-color: #181818;
   border: 0px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   box-sizing: border-box;
-  color: #dfe6e9; 
-  font-family: 'Poppins', sans-serif;
+  color: #ffffff; 
+  font-family: 'Ubuntu Mono', sans-serif;
   height: 45px;
   margin-bottom: 8px;
   padding: 8px;
@@ -24,15 +26,16 @@
 }
 
 .typing__text {
-  background-color: #374042;
+  background-color: #181818;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   box-sizing: border-box;
-  color: #dfe6e9;
-  font-size: 18px;
+  color: #ffffff;
+  font-family: "Ubuntu Mono";
+  font-size: 25px;
   height: calc(100vh - 210px);
-  line-height: 50px;
-  padding: 30px;
+  line-height: 80px;
+  padding: 40px;
 }
 .typing__next-text{
   color: #7c878b;

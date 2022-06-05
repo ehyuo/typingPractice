@@ -18,7 +18,7 @@ const MainContainer = () => {
     flexDirection: "column",
     transition: "0.25s all",
     transitionDelay: isFolded?"0.1s":"0s",
-    width: isFolded?"85%":"100%",
+    width: "100%",
   }
 
   const returnFoldBtn = () => {
@@ -27,7 +27,11 @@ const MainContainer = () => {
       onClick={() => {
         dispatch(setIsFolded(!isFolded))
       }}
-      class="wrapper__button">M</button>
+      class="wrapper__button">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <span class="material-symbols-outlined">menu
+        </span>
+      </button>
     )
   }
 
