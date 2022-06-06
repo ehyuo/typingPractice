@@ -1,5 +1,5 @@
 .sideBar{
-    background-color: #282828;
+    background-color: #181818;
     color: #ffffff;
     flex-direction: row;
     height: 400px;
@@ -15,7 +15,7 @@
     margin-left: 1px;
     position: relative;
     width: 5px;
-    background-color: #dfe6e9;
+    background-color: #d32f2f;
     border-radius: 2px;
     height: 30px;
 }

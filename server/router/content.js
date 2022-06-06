@@ -76,13 +76,12 @@ router.get('/:language/:mode/:title', async (req, res, next) => {
 
 router.post('/createContent/:text', async (req, res, next) => {
     try {
-        console.log("hangul");
         const cret = await Content.create({
             id: uuidv4(),
             language: "english",
             mode: "longText",
-            title: "Lorem Ipsum 2",
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi finibus lacus mattis, vulputate magna a, egestas ex. Nulla facilisi. Pellentesque ut nisl ipsum. Cras porta augue justo, sed rhoncus mauris pulvinar ut. Vivamus at diam condimentum, cursus ante eget, ultricies nulla. Mauris bibendum posuere lacus. Ut velit nulla, scelerisque in elementum vel, efficitur ac libero. Cras efficitur quis nisi sed finibus. Vivamus risus odio, lacinia non elementum quis, tincidunt in nisl. Sed euismod felis dictum diam suscipit congue. Sed lobortis malesuada felis at ultrices. Praesent et diam a tellus egestas porta eget quis sem. Sed non efficitur mi. Morbi convallis velit eu sem scelerisque lobortis. Integer non ligula auctor mi aliquet efficitur. Vestibulum a ultrices metus. Praesent ultrices nulla nec risus rhoncus interdum. Aliquam sed porta libero. Ut sagittis tempor nisl ut egestas. Nulla elementum nisl sit amet sapien viverra, a congue ipsum euismod. Curabitur pellentesque nibh at pellentesque tincidunt. Proin pretium ac lectus non pellentesque. Pellentesque semper lacus ac rutrum malesuada."
+            title: "The Trees and the Axe",
+            content: "A Woodman went into the forest and begged of the Trees the favour of a handle for his Axe. The principal Trees at once agreed to so modest a request, and unhesitatingly gave him a young ash sapling, out of which he fashioned the handle he desired. No sooner had he done so than he set to work to fell the noblest Trees in the wood. When they saw the use to which he was putting their gift, they cried, “Alas! alas! We are undone, but we are ourselves to blame. The little we gave has cost us all: had we not sacrificed the rights of the ash, we might ourselves have stood for ages."
         })
         res.send(true);
     } catch (err) {

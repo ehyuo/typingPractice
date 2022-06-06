@@ -22,15 +22,17 @@ const SettingContainer = () => {
     const dispatch = useDispatch();
 
     const [notice, setNotice] = useState(false);
-
-    const [selectedMode, setSelectedMode] = useState("Mode");
-    const [selectedLanguage, setSelectedLanguage] = useState("Language");
+    const [priview, setPriview] = useState("");
+    const [selectedMode, setSelectedMode] = useState("");
+    const [selectedLanguage, setSelectedLanguage] = useState("");
     const [selectedLongText, setSelectedLongText] = useState("");
 
     const [longTextList, setLongTextList] = useState([]);
 
+    //is Selecting states
     const [isLanguageSelecting, setIsLanguageSelecting] = useState(false);
     const [isModeSelecting, setIsModeSelecting] = useState(false);
+    const [isLongTextSelecting, setIsLongTextSelecting] = useState(false);
 
     const isFinished = useSelector(state => state.typingProgress.isFinished);
     
@@ -55,6 +57,32 @@ const SettingContainer = () => {
         }
     }, [selectedLanguage, selectedMode]);
 
+    useEffect(() => {
+        printPriview();
+    }, [selectedLanguage, selectedMode, selectedLongText])
+    const printPriview = () => {
+        try {
+            Axios.get(
+                (selectedMode == "longText") ? 
+                `/contents/${selectedLanguage}/${selectedMode}/${selectedLongText}`:
+                `/contents/${selectedLanguage}/${selectedMode}/null`,    
+                null, 
+                { withCredentials: true })
+                .then((res) => {
+                    try {
+                        setPriview(res.data[0].content);
+                        console.log(res.data[0].content)
+                    } catch(err) {
+                        console.log(err);
+                    }
+                })
+        } catch(err) {
+            console.log(err);
+        }
+    }
+    const capitalize = (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
     const contentProcessing = () => {
         try {
             dispatch(setLanguage(selectedLanguage));
@@ -120,8 +148,9 @@ const SettingContainer = () => {
     return (
         <div>
             <SettingField
+                capitalize={capitalize}
                 notice={notice}
-
+                priview={priview}
                 selectedMode={selectedMode}
                 selectedLanguage={selectedLanguage}
                 selectedLongText={selectedLongText}
@@ -140,6 +169,9 @@ const SettingContainer = () => {
 
                 isModeSelecting={isModeSelecting}
                 setIsModeSelecting={setIsModeSelecting}
+
+                isLongTextSelecting={isLongTextSelecting}
+                setIsLongTextSelecting={setIsLongTextSelecting}
             >
             </SettingField>
             <button onClick={() => {

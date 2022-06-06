@@ -21,13 +21,13 @@
     width: 40px;
     height: 40px;
     
-    background-color: #282828;
+    background-color: #181818;
     border: 1px solid #404040;
     border-radius: 5px;
     transition: 0.25s all;
   }
 
   .wrapper__button:hover {
-    background-color: #404040;
+    background-color: #242424;
 
   }
