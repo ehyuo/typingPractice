@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useRef } from "react";
 import InputField from "./inputField";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -12,10 +13,17 @@ import { increaseTypingProgress } from "reducers/typing/typingProgress";
 import { insertTypingSpeed } from "reducers/typing/typingSpeed";
 import { increaseBackSpace } from "reducers/typing/typingBackspace";
 
+import sound from "fonts/keySound.wav";
+import "./input.css"
 
 const InputContainer = (props) => {
   const dispatch = useDispatch(); //dispatch
-
+  //for keyboard layout
+  const [firstLine, setFirstLine] = useState(["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "+", "Backspace"])
+  const [secondLine, setSecondLine] = useState(["Tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "\\"])
+  const [thirdLine, setThirdLine] = useState(["Caps Lock", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "Enter"])
+  const [fourthLine, setFourthLine] = useState(["ShiftLeft", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "ShiftRight"])
+  const [fifthLine, setFifthLine] = useState(["Space"])
   //text
   const { text, inputText, resultText } = useSelector(state => ({
     text: state.text.text,
@@ -35,6 +43,9 @@ const InputContainer = (props) => {
     language: state.setting.language
   }))
   
+  //pressed Keys 
+  const [pressedKey, setPressedKey] = useState([]);
+  const inputRef = useRef(null);
   const typingCount = useSelector(state => state.interval.typingCount);
   //input
   const onInput = (e) => {
@@ -47,11 +58,13 @@ const InputContainer = (props) => {
 
     //resultText
     dispatch(setResultText(textList.map((row, idx) => {
+      let temp = true;
       if (row == inputList[idx]) {
         return ({ differ: true, letter: row });
       } else {
         if (inputList[idx] == null || (language == "hangul" && idx+1 == inputList.length)) {
-          return ({ differ: "yet", letter: row });
+          if(temp) return ({ differ: "last", letter: row });
+          else return ({ differ: "yet", letter: row });
         } else {
           return ({ differ: false, letter: row });
         }
@@ -70,6 +83,14 @@ const InputContainer = (props) => {
 
   //enter and backspace action
   const onKeyDown = (e) => {
+    const keySound = new Audio(sound);
+    keySound.volume = 0.3;
+    keySound.play();
+    const arrows = ["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"]
+    if(arrows.includes(e.key)) e.preventDefault();
+    if(e.key == "Shift") setPressedKey([...pressedKey, e.code]);
+    else setPressedKey([...pressedKey, e.key]);
+
     if (e.key == "Backspace") {
       dispatch(setTypingCount(typingCount - 2));
       dispatch(increaseBackSpace());
@@ -96,11 +117,29 @@ const InputContainer = (props) => {
       }
     }
   }
+  const onKeyUp = (e) => {
+    if(e.key == "Shift") setPressedKey(pressedKey.filter(i => i != e.code));
+    else setPressedKey(pressedKey.filter(i => i != e.key));
+  }
+  //focus 풀리지 않게
+  const onBlur = (e) => {
+    inputRef.current.focus();
+  }
   return (
     <InputField
+      firstLine={firstLine}
+      secondLine={secondLine}
+      thirdLine={thirdLine}
+      fourthLine={fourthLine}
+      fifthLine={fifthLine}
       inputText={inputText}
       onInput={onInput}
-      onKeyDown={onKeyDown}>
+      onKeyDown={onKeyDown}
+      onKeyUp={onKeyUp}
+      pressedKey={pressedKey}
+      onBlur={onBlur}
+      inputRef={inputRef}
+      >
     </InputField>
   )
 }

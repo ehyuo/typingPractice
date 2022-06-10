@@ -12,6 +12,7 @@
 .setting__top {
     display:flex;
     flex-direction: row;
+    margin-top: 30px;
 }
 .setting__preview {
     background-color: #181818;
@@ -35,7 +36,7 @@
 }
 .setting__blur {
     position: absolute;
-    top: 270px;
+    top: 290px;
     background: rgb(24,24,24);
     background: linear-gradient(0deg, rgba(24,24,24,1) 0%, rgba(0,0,0,0) 70%);
     border-radius: 5px;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -22,12 +22,18 @@ const TextContainer = (props) => {
 
     //else
     const mode = useSelector(state => state.setting.mode);
-
+    const [underbarX, setUnderbarX] = useState(0);
+    const [underbarY, setUnderbarY] = useState(0);
+    const lastRef = useRef();
+    const underbarRef = useRef();
     //
     useEffect(() => {
         dispatch(textToResultText());
     }, [text]);
 
+    useEffect(() => {
+        console.log(lastRef)
+    }, [resultText])
     const printResultText = () => {
         return (
             resultText.map((row, idx) => {
@@ -36,7 +42,10 @@ const TextContainer = (props) => {
                 } else if (row.differ == false) {
                     return (<a style={{ color: "#ff5232" }}>{row.letter}</a>);
                 } else {
-                    return (<a>{text.split('')[idx]}</a>);
+                    if(row.differ == "last") {
+                        return (<a ref={lastRef}>{text.split('')[idx]}</a>);
+                    }
+                    else return (<a>{text.split('')[idx]}</a>);
                 }
             })
         );
@@ -59,8 +68,9 @@ const TextContainer = (props) => {
     } else if (mode == "longText") {
         return (
             <div class="typing__text typing__text--long-text">
+                {/*<div ref={underbarRef} class="typing__underbar"></div>*/}
                 <div>{printResultText()}</div>
-                <div class="typing__page-count">{pageIndex + 1}/{pageCount}</div>
+                {/*<div class="typing__page-count">{pageIndex + 1}/{pageCount}</div>*/}
             </div>
         )
     }

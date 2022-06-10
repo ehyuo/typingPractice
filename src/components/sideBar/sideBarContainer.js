@@ -2,6 +2,7 @@ import "./sideBar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setPageMode } from "../../reducers/pageMode";
 import { useEffect, useState, useRef } from "react";
+import { setIsFolded } from "reducers/fold";
 
 const SideBarContainer = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ const SideBarContainer = () => {
       <div class="buttonList">
         <button
           onClick={() => {
+            dispatch(setIsFolded(false))
             dispatch(setPageMode("index"));
           }}
         >
@@ -45,6 +47,7 @@ const SideBarContainer = () => {
         </button>
         <button
           onClick={() => {
+            dispatch(setIsFolded(false))
             dispatch(setPageMode("setting"));
           }}
         >
@@ -52,6 +55,7 @@ const SideBarContainer = () => {
         </button>
         <button
           onClick={() => {
+            dispatch(setIsFolded(false))
             dispatch(setPageMode("scoreChart"));
           }}
         >

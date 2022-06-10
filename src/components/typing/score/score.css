@@ -27,16 +27,16 @@
 }
 
 .score__graph{
-  width: 80%;
+  width: 81%;
   margin-top: 10px;
-  height: 10px;
-  background: #B3B3B3;
+  height: 15px;
+  background: #242424;
   border-radius: 5px;
 }
 
 .score__graph span {
-  height: 10px;
+  height: 15px;
   display: block;
-  background: #404040;
+  background: #1B6B9E;
   border-radius: 5px;
 }

@@ -11,7 +11,7 @@ const ResultInfo = (props) => {
             </div>
             <div class="result__line">
                 <span class="result__name">Speed Average</span>
-                <span class="result__value">{props.speedAverage}<div class="result__unit"> CPM</div></span>
+                <span class="result__value">{Math.floor(props.speedAverage)}<div class="result__unit"> CPM</div></span>
             </div>
             <div class="result__line">
                 <span class="result__name">Accuracy Average</span>
