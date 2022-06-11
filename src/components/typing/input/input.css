@@ -1,4 +1,5 @@
 .input {
+    width: 100%;
     
 }
 .input__keyboard {
@@ -6,6 +7,7 @@
     flex-direction: column;
     background-color: #181818;
     border-radius: 6px;
+    box-sizing: border-box;
     margin: 0 auto;
     padding: 5px;
     width: min-content;

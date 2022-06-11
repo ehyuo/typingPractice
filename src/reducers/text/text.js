@@ -48,8 +48,9 @@ const text = (state = initState, actions) => {
         case TO_RESULTTEXT:
             return state = {
                 ...state,
-                resultText: state.text.split('').map((row) => {
-                    return ({ differ: "yet", letter: row });
+                resultText: state.text.split('').map((row, idx) => {
+                    if(idx == 0) return ({ differ: "last", letter: row });
+                    else return ({ differ: "yet", letter: row });
                 })
             }
         case RESET:

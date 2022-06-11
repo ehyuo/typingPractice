@@ -16,6 +16,7 @@ import setting from './setting';
 import pageMode from "./pageMode";
 import darkMode from "./darkMode";
 import fold from "./fold";
+import underbarPos from "./text/underbarPos";
 
 export const reducer = combineReducers({
     typingSpeed,
@@ -31,5 +32,7 @@ export const reducer = combineReducers({
     setting,
     pageMode,
     darkMode,
-    fold
+    fold,
+
+    underbarPos
 })

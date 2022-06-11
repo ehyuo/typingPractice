@@ -27,8 +27,8 @@ const ResultContainer = (props) => {
         language: state.setting.language,
         mode: state.setting.mode,
     }))
-    const speedData = speedList.map(row => {
-        return ({ speed: row })
+    const data = speedList.map((row, idx) => {
+        return ({ speed: row, accuracy: accuracyList[idx] })
     });
 
     const getAverage = (list) => {
@@ -65,7 +65,7 @@ const ResultContainer = (props) => {
     return (
         <div class="result">
             <ResultChart
-                speedData={speedData}>
+                data={data}>
             </ResultChart>
             <div class="info">
                 <ResultInfo

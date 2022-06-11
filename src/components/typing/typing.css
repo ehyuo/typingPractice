@@ -4,7 +4,7 @@
   flex-direction: column;
   gap: 10px;
   margin: 10px auto;
-  width: 80%;
+  width: 70%;
 }
 
 
@@ -17,18 +17,28 @@
   color: #ffffff;
   font-family: "Ubuntu Mono";
   font-size: 25px;
-  height: 350px;
+  height: 360px;
   line-height: 80px;
   padding: 40px;
 }
+.typing__current-text {
+  background-color: #242424;
+  border-radius: 10px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0px 10px;
+}
 .typing__next-text{
-  color: #7c878b;
+  padding: 0px 10px;
+  color: #404040;
   
 }
 .typing__text--sentence{
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 30px;
+  padding: 50px 40px;
+  height: min-content;
 }
 .typing__text--word{
   
@@ -45,7 +55,8 @@
 }
 .typing__underbar {
   width: 12px;
-  height: 5px;
+  height: 3px;
   background-color: #b3b3b3;
+  border-radius: 2px;
   position: absolute;
 }

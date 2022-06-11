@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import Axios from "axios";
 
@@ -36,8 +36,11 @@ const SettingContainer = () => {
 
     const isFinished = useSelector(state => state.typingProgress.isFinished);
     
+    //goal count input range
+    const [goalCount, setGoalCount]  = useState(10);
     //initalize
     useEffect(() => {
+        setGoalCount(10);
         dispatch(resetTypingSpeed());
         dispatch(resetTyipingAccuracy());
         dispatch(resetPageCount());
@@ -59,7 +62,9 @@ const SettingContainer = () => {
 
     useEffect(() => {
         printPriview();
-    }, [selectedLanguage, selectedMode, selectedLongText])
+    }, [selectedLanguage, selectedMode, selectedLongText]);
+
+    
     const printPriview = () => {
         try {
             Axios.get(
@@ -71,7 +76,6 @@ const SettingContainer = () => {
                 .then((res) => {
                     try {
                         setPriview(res.data[0].content);
-                        console.log(res.data[0].content)
                     } catch(err) {
                         console.log(err);
                     }
@@ -80,6 +84,7 @@ const SettingContainer = () => {
             console.log(err);
         }
     }
+    //앞 문자 대문자로
     const capitalize = (str) => {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
@@ -116,7 +121,7 @@ const SettingContainer = () => {
                         })));
                         dispatch(setText(res.data[Math.floor(Math.random() * res.data.length)].content));
                         dispatch(setNextText(res.data[Math.floor(Math.random() * res.data.length)].content));
-                        dispatch(setGoalProgress(10));
+                        dispatch(setGoalProgress(goalCount));
                     }
         
                     if (isFinished == false) {
@@ -172,6 +177,9 @@ const SettingContainer = () => {
 
                 isLongTextSelecting={isLongTextSelecting}
                 setIsLongTextSelecting={setIsLongTextSelecting}
+
+                goalCount={goalCount}
+                setGoalCount={setGoalCount}
             >
             </SettingField>
             <button onClick={() => {

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { insertTypingAccuracy, setTypingAccuracy } from "reducers/typing/typingAccuracy";
 import { setIsRunning, setTypingCount, resetInterval } from "reducers/interval";
 import { setInputText, resetInputText } from "reducers/text/inputText";
-
+import { setUnderbarPos } from "reducers/text/underbarPos";
 import { setResultText, nextTextToText, setNextText, textToResultText, setText } from "reducers/text/text";
 import { turnPage } from "reducers/text/longText";
 import { increaseTypingProgress } from "reducers/typing/typingProgress";
@@ -19,11 +19,11 @@ import "./input.css"
 const InputContainer = (props) => {
   const dispatch = useDispatch(); //dispatch
   //for keyboard layout
-  const [firstLine, setFirstLine] = useState(["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "+", "Backspace"])
-  const [secondLine, setSecondLine] = useState(["Tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "\\"])
-  const [thirdLine, setThirdLine] = useState(["Caps Lock", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "Enter"])
-  const [fourthLine, setFourthLine] = useState(["ShiftLeft", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "ShiftRight"])
-  const [fifthLine, setFifthLine] = useState(["Space"])
+  const [firstLine] = useState(["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "+", "Backspace"])
+  const [secondLine] = useState(["Tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "\\"])
+  const [thirdLine] = useState(["Caps Lock", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "Enter"])
+  const [fourthLine] = useState(["ShiftLeft", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "ShiftRight"])
+  const [fifthLine] = useState(["Space"])
   //text
   const { text, inputText, resultText } = useSelector(state => ({
     text: state.text.text,
@@ -57,13 +57,16 @@ const InputContainer = (props) => {
     const inputList = e.target.value.split('');
 
     //resultText
+    let temp = true;
     dispatch(setResultText(textList.map((row, idx) => {
-      let temp = true;
       if (row == inputList[idx]) {
         return ({ differ: true, letter: row });
       } else {
         if (inputList[idx] == null || (language == "hangul" && idx+1 == inputList.length)) {
-          if(temp) return ({ differ: "last", letter: row });
+          if(temp) {
+            temp = !temp;
+            return ({ differ: "last", letter: row });
+          }
           else return ({ differ: "yet", letter: row });
         } else {
           return ({ differ: false, letter: row });
@@ -83,11 +86,15 @@ const InputContainer = (props) => {
 
   //enter and backspace action
   const onKeyDown = (e) => {
+    //키보드 효과음 출력
     const keySound = new Audio(sound);
     keySound.volume = 0.3;
     keySound.play();
+
+    //방향키 사용 제한
     const arrows = ["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"]
     if(arrows.includes(e.key)) e.preventDefault();
+
     if(e.key == "Shift") setPressedKey([...pressedKey, e.code]);
     else setPressedKey([...pressedKey, e.key]);
 
@@ -95,11 +102,11 @@ const InputContainer = (props) => {
       dispatch(setTypingCount(typingCount - 2));
       dispatch(increaseBackSpace());
     }
-    if (e.key == "Enter") {
+    if (e.key == "Enter") {   
       if (inputText.length >= text.length) {
         dispatch(setResultText([])); //출력 배열 초기화
         dispatch(resetInterval());  //Interval 초기화
-
+        dispatch(setUnderbarPos(302, 208));   
         if (mode == "longText") {
           dispatch(turnPage());
           dispatch(setText(longTextContent[pageIndex+1]));

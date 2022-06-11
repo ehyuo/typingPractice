@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 import { textToResultText } from "reducers/text/text";
+import { setUnderbarPos } from 'reducers/text/underbarPos';
 
 const TextContainer = (props) => {
     const dispatch = useDispatch();
@@ -22,7 +23,11 @@ const TextContainer = (props) => {
 
     //else
     const mode = useSelector(state => state.setting.mode);
-    const [underbarX, setUnderbarX] = useState(0);
+    const { x, y } = useSelector(state => ({
+        x: state.underbarPos.x,
+        y: state.underbarPos.y
+    }));
+
     const [underbarY, setUnderbarY] = useState(0);
     const lastRef = useRef();
     const underbarRef = useRef();
@@ -31,21 +36,35 @@ const TextContainer = (props) => {
         dispatch(textToResultText());
     }, [text]);
 
+    useEffect(() => { 
+        try{
+            underbarRef.current.style.left = lastRef.current.getBoundingClientRect().left + "px";
+            underbarRef.current.style.top = lastRef.current.getBoundingClientRect().top + 26 + "px";
+        } catch(e) {
+            console.error(e);
+        }
+    }, [resultText, lastRef]);
+
     useEffect(() => {
-        console.log(lastRef)
-    }, [resultText])
+        underbarRef.current.style.left = x + "px";
+        underbarRef.current.style.top = y + "px";
+    }, [x, y])
     const printResultText = () => {
         return (
             resultText.map((row, idx) => {
                 if (row.differ == true) {
                     return (<a style={{ color: "#404040" }}>{row.letter}</a>);
                 } else if (row.differ == false) {
-                    return (<a style={{ color: "#ff5232" }}>{row.letter}</a>);
+                    return (<a style={{ backgroundColor: "#ff5232", 
+                                        borderRadius: "2px",
+                                    }}>{row.letter}</a>);
                 } else {
                     if(row.differ == "last") {
                         return (<a ref={lastRef}>{text.split('')[idx]}</a>);
                     }
-                    else return (<a>{text.split('')[idx]}</a>);
+                    else {
+                        return (<a>{text.split('')[idx]}</a>);
+                    } 
                 }
             })
         );
@@ -55,7 +74,8 @@ const TextContainer = (props) => {
     if (mode == "sentence") {
         return (
             <div class="typing__text typing__text--sentence">
-                <div>{printResultText()}</div>
+                <div ref={underbarRef} class="typing__underbar"></div>
+                <div class="typing__current-text">{printResultText()}</div>
                 <div class="typing__next-text">{nextText}</div>
             </div>
         )
@@ -68,7 +88,7 @@ const TextContainer = (props) => {
     } else if (mode == "longText") {
         return (
             <div class="typing__text typing__text--long-text">
-                {/*<div ref={underbarRef} class="typing__underbar"></div>*/}
+                <div ref={underbarRef} class="typing__underbar"></div>
                 <div>{printResultText()}</div>
                 {/*<div class="typing__page-count">{pageIndex + 1}/{pageCount}</div>*/}
             </div>

@@ -15,7 +15,7 @@ const ResultInfo = (props) => {
             </div>
             <div class="result__line">
                 <span class="result__name">Accuracy Average</span>
-                <span class="result__value">{props.accuracyAverage} <div class="result__unit">%</div></span>
+                <span class="result__value">{Math.floor(props.accuracyAverage)} <div class="result__unit">%</div></span>
             </div>
             <div class="result__line">
                 <span class="result__name">Backspace Count </span>
