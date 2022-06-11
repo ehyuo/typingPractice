@@ -10,4 +10,10 @@
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
 ### Overview
+#### Setting
+![image](https://user-images.githubusercontent.com/66898263/173192914-a6613aa7-d845-4d51-89b9-64c9d3445a3a.png)
+#### Typing
+![image](https://user-images.githubusercontent.com/66898263/173192968-01f1727a-b7f3-4e2e-b18c-4308dfa87c8c.png)
 
+#### Result
+![image](https://user-images.githubusercontent.com/66898263/173192902-c8509029-d802-49ac-9b56-710ac55215f4.png)
