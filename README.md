@@ -28,3 +28,5 @@ Overview
 ![image](https://user-images.githubusercontent.com/66898263/173192968-01f1727a-b7f3-4e2e-b18c-4308dfa87c8c.png)
 #### Result
 ![image](https://user-images.githubusercontent.com/66898263/173192902-c8509029-d802-49ac-9b56-710ac55215f4.png)
+#### Scores
+![image](https://user-images.githubusercontent.com/66898263/173213829-bc69cbbd-52d2-4408-9feb-afe5d3c0b6ed.png)
