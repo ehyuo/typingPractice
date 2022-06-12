@@ -14,7 +14,7 @@ Stacks
 Overview
 -----
 #### Index
-![image](https://user-images.githubusercontent.com/66898263/173193016-5bdd8957-ae28-4618-9309-302da2c8a886.png)
+![image](https://user-images.githubusercontent.com/66898263/173211085-c76a55de-8596-403c-a80f-6a5e9efe4825.png)
 
 #### Setting
 ![image](https://user-images.githubusercontent.com/66898263/173192914-a6613aa7-d845-4d51-89b9-64c9d3445a3a.png)
