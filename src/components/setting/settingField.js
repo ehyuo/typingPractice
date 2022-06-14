@@ -5,8 +5,14 @@ const SettingField = (props) => {
     return (
         <div class="setting">
             <div class="setting__top">
-                <div class="setting__preview">
-                    <div class="setting__priview-text">{props.priview}</div>
+                <div class="setting__overview">
+                    <div class="setting__overview-text">
+                        {typeof props.overview== "string"? 
+                            props.overview : props.overview.map((row, idx) => {
+                            if(idx == 0) return <div class="setting__overview-sentence setting__overview-sentence--first">{row}</div>
+                            else return <div class="setting__overview-sentence">{row}</div>
+                        })}
+                    </div>
                     <div class="setting__blur"></div>
                 </div>
                 <div class="setting__main-section">

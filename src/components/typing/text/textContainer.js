@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 import { textToResultText } from "reducers/text/text";
-import { setUnderbarPos } from 'reducers/text/underbarPos';
 
 const TextContainer = (props) => {
     const dispatch = useDispatch();
@@ -16,9 +15,10 @@ const TextContainer = (props) => {
     }))
 
     //page
-    const { pageIndex, pageCount } = useSelector(state => ({
+    const { pageIndex, pageCount, longTextTitle } = useSelector(state => ({
         pageIndex: state.longText.pageIndex,
-        pageCount: state.longText.pageCount
+        pageCount: state.longText.pageCount,
+        longTextTitle: state.longText.longTextTitle
     }));
 
     //else
@@ -28,7 +28,9 @@ const TextContainer = (props) => {
         y: state.underbarPos.y
     }));
 
-    const [underbarY, setUnderbarY] = useState(0);
+    const sentenceList = useSelector(state => state.text.sentenceList);
+    const progress = useSelector(state => state.typingProgress.progress);
+
     const lastRef = useRef();
     const underbarRef = useRef();
     //
@@ -36,18 +38,23 @@ const TextContainer = (props) => {
         dispatch(textToResultText());
     }, [text]);
 
-    useEffect(() => { 
-        try{
+    useEffect(() => {
+        try {
             underbarRef.current.style.left = lastRef.current.getBoundingClientRect().left + "px";
             underbarRef.current.style.top = lastRef.current.getBoundingClientRect().top + 26 + "px";
-        } catch(e) {
+        } catch (e) {
             console.error(e);
         }
     }, [resultText, lastRef]);
 
     useEffect(() => {
-        underbarRef.current.style.left = x + "px";
-        underbarRef.current.style.top = y + "px";
+        try {
+            underbarRef.current.style.left = x + "px";
+            underbarRef.current.style.top = y + "px";
+        } catch (e) {
+            console.error(e);
+        }
+
     }, [x, y])
     const printResultText = () => {
         return (
@@ -55,16 +62,17 @@ const TextContainer = (props) => {
                 if (row.differ == true) {
                     return (<a style={{ color: "#404040" }}>{row.letter}</a>);
                 } else if (row.differ == false) {
-                    return (<a style={{ backgroundColor: "#ff5232", 
-                                        borderRadius: "2px",
-                                    }}>{row.letter}</a>);
+                    return (<a style={{
+                        backgroundColor: "#ff5232",
+                        borderRadius: "2px",
+                    }}>{row.letter}</a>);
                 } else {
-                    if(row.differ == "last") {
+                    if (row.differ == "last") {
                         return (<a ref={lastRef}>{text.split('')[idx]}</a>);
                     }
                     else {
                         return (<a>{text.split('')[idx]}</a>);
-                    } 
+                    }
                 }
             })
         );
@@ -75,15 +83,41 @@ const TextContainer = (props) => {
         return (
             <div class="typing__text typing__text--sentence">
                 <div ref={underbarRef} class="typing__underbar"></div>
-                <div class="typing__current-text">{printResultText()}</div>
-                <div class="typing__next-text">{nextText}</div>
+                {sentenceList.map((row, idx) => {
+                    if (progress == idx) return (
+                        <div>
+                            <div class="typing__before-text">{sentenceList[idx - 1]}</div>
+                            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+                            <div class="typing__current">
+                            <span class="material-symbols-outlined">
+                                keyboard_double_arrow_right
+                            </span>
+                            <div class="typing__current-text">{printResultText()}</div></div>
+                            <div class="typing__after-text">{sentenceList[idx + 1]}</div>
+                        </div>
+                    )
+
+                })}
+
+
             </div>
         )
     } else if (mode == "word") {
         return (
-            <div class="typing__text typing__text--word">
-                <a class="wordnow">{printResultText()}</a>
-            </div>
+            
+                sentenceList.map((row, idx) => {
+                    if (progress == idx) return (
+                        <div class="typing__text typing__text--word">
+                            <div class="typing__before-text typing__before-text--word">{sentenceList[idx - 2]}</div>
+                            <div class="typing__before-text typing__before-text--word">{sentenceList[idx - 1]}</div>
+                            <div class="typing__current-text typing__current-text--word">{printResultText()}</div>
+                            <div class="typing__after-text typing__after-text--word">{sentenceList[idx + 1]}</div>
+                            <div class="typing__after-text typing__after-text--word">{sentenceList[idx + 2]}</div>
+                        </div>
+                    )
+
+                })
+
         )
     } else if (mode == "longText") {
         return (

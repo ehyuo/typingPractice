@@ -42,7 +42,8 @@ const InputContainer = (props) => {
     content: state.setting.content,
     language: state.setting.language
   }))
-  
+  const progress = useSelector(state => state.typingProgress.progress);
+      const sentenceList = useSelector(state => state.text.sentenceList);
   //pressed Keys 
   const [pressedKey, setPressedKey] = useState([]);
   const inputRef = useRef(null);
@@ -111,8 +112,8 @@ const InputContainer = (props) => {
           dispatch(turnPage());
           dispatch(setText(longTextContent[pageIndex+1]));
         } else {
-          dispatch(nextTextToText());
-          dispatch(setNextText(content[Math.floor(Math.random() * content.length)]))
+          dispatch(setText(sentenceList[progress+1]));
+          dispatch(setNextText(sentenceList[progress]))
         }
 
         dispatch(textToResultText());

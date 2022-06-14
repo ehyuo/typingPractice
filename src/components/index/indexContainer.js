@@ -1,6 +1,5 @@
 import SimpleResultChart from "./simpleResultChart";
 import ContentCount from "./contentCount";
-import GettingStarted from "./gettingStarted";
 import { useEffect, useState } from "react";
 
 import "./index.css"
@@ -23,7 +22,7 @@ const IndexContainer = () => {
             null,
             { withCredentials: true })
             .then((res) => {
-                setRecordList(res.data.slice(0, 5));
+                setRecordList(res.data.slice(0, 4));
             })
     }, []);
 
@@ -43,10 +42,10 @@ const IndexContainer = () => {
     return (
         <div class="index">
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-            <h3><span class="material-symbols-outlined">
+            <div class="index__title"><span class="material-symbols-outlined">
                 keyboard_double_arrow_right
-            </span>TypingPractice</h3>
-            <div class="simple-info">
+            </span>TypingPractice</div>
+            <div class="index__info">
                 <SimpleResultChart
                     recordList={recordList} />
                 <ContentCount
@@ -54,10 +53,12 @@ const IndexContainer = () => {
                     wordCount={wordCount}
                     longTextCount={longTextCount} />
             </div>
-            <GettingStarted
-                gettingStarted={() => {
+            <div class="gettingStarted">
+                <button onClick={() => {
                     dispatch(setPageMode("setting"))
-                }} />
+                }}>Getting Started</button>
+            </div>
+
         </div>
     )
 }

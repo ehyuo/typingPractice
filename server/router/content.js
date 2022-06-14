@@ -78,10 +78,10 @@ router.post('/createContent/:text', async (req, res, next) => {
     try {
         const cret = await Content.create({
             id: uuidv4(),
-            language: "english",
+            language: "hangul",
             mode: "sentence",
             title: null,
-            content: "Good things come to those who wait."
+            content: "못된 송아지 엉덩이에 뿔이 난다."
         })
         res.send(true);
     } catch (err) {

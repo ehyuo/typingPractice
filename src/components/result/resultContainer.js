@@ -16,6 +16,9 @@ const ResultContainer = (props) => {
 
     const [name, setName] = useState("");
     const [isDisabled, setIsDisabled] = useState(false);
+    const { longTextTitle } = useSelector(state => ({
+        longTextTitle: state.longText.longTextTitle
+    }));
 
     const { speedList, accuracyList, backspaceCount } = useSelector(state => ({
         speedList: state.typingSpeed.speedList,
@@ -46,10 +49,12 @@ const ResultContainer = (props) => {
         if (name == "") {
             console.log('name is required');
         } else {
+            console.log(longTextTitle);
             Axios.post("/records",
                 {
                     name: name,
                     language: language,
+                    title: mode=="longText" ? longTextTitle : null,
                     mode: mode,
                     speed: getAverage(speedList),
                     accuracy: getAverage(accuracyList),

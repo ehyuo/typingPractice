@@ -16,6 +16,10 @@ module.exports = class User extends Sequelize.Model {
           type: Sequelize.STRING(40),
           comment: "language"
       },
+      title: {
+        type: Sequelize.STRING(40),
+        comment: "title"
+      },
       mode: {
           type: Sequelize.STRING(40),
           comment: "mode"

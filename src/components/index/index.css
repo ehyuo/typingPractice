@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap');
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 .index{
     display: flex;
@@ -14,58 +13,131 @@
   'opsz' 48;
 }
 
-.index h3 {
+.index__title {
     font-family: 'Noto Sans KR', sans-serif;
+    font-size: 60px;
     margin: 0 auto;
     padding: 100px;
-    font-size: 60px;
 }
-.index h3 .material-symbols-outlined {
+.index__title .material-symbols-outlined {
     color: #d32f2f;
     padding-bottom: 7px;
     padding-right: 10px;
     transform: scale(3.5);
 }
-.simple-info{
+.index__info{
     display: flex;
     flex-direction: raw;
-    margin: 0px auto;
-    justify-content: space-between;
     gap: 10px;
     height: 400px;
+    justify-content: space-between;
+    margin: 0px auto;
 }
 
-.simple-info-item{
+.index__panel{
     background-color: #181818;
     border-radius: 2px;
     border-top: 4px solid #d32f2f;
-    width: 500px;
-    font-size: 20px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    font-size: 20px;
+    grid-row-gap: 1em;
+    width: 600px;
 }
-
-
-.simple-info-item table {
-    margin: 20px auto;
+.index__panel--scores {
+    border-top: unset;
+    background-color: unset;
 }
-
-.simple-info-item td {
-    padding: 30px 20px 10px;
+.index__panel--count {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 130px;
 }
-.simple-info-item td a{
-    color: #798082;
-    font-size: 14px;
+.index__item {
+    background-color: #181818;
+    border-radius: 2px;
+    border-top: 4px solid #d32f2f;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
 }
-
-.simple-info-item div {
-    width: 300px;
-    padding: 20px;
-    margin: 30px auto;
+.index__subitem {
+    display: flex;
+    padding-top: 0px;
 }
-.simple-info-item div a {
+.index__subitem--name {
+    display: grid;
+    height: 80px;
+    grid-template-columns: 1fr 1fr;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 30px;
+    justify-content: center;
+    padding: 20px 0 0 10px;
+}
+.index__subitem--mode {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+.index__subitem--speed {
+    font-size: 23px;
+    justify-content: center;
+}
+.index__subitem--accuray {
+    font-size: 23px;
+    justify-content: left;
+    padding-left: 20px;
+}
+.index__text {
+    color: #636363;
+    font-size: 15px;
+}
+.index__text--name {
+    display: flex;
+    margin: 0 auto;
+    line-height: 60px;
+    text-align: left;
+}
+.index__text--unit {
+    line-height: 30px;
+}
+.index__text--title {
+    color: #8f8f8f;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    padding-left: 40px;
+    text-align: left;
+}
+.index__text--mode {
+    padding: 15px 0 0 10px;
+    line-height: 40px;
+    text-align: left;
+}
+.index__text--value {
+    color: #ffffff;
+    font-size: inherit;
+    padding-right: 5px;
+    text-align: right;
+    width: 60px;
+}
+.index__text--count {
+    font-size: 20px;
+    padding-top: 10px;
+}
+.index__count {
+    display: flex;
+    flex-direction: column;
     font-size: 30px;
 }
-
+.index__value--count {
+    font-size: 60px;
+    text-align: center;
+}
 .gettingStarted {
     margin: 60px auto;
     width: 15%;

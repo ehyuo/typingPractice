@@ -26,6 +26,7 @@ router.post('/', async (req, res, next) => {
             id: uuidv4(),
             name: req.body.name,
             language: req.body.language,
+            title: req.body.title,
             mode: req.body.mode,
             speed: req.body.speed,
             accuracy: req.body.accuracy,

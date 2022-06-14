@@ -6,7 +6,7 @@ import SettingField from "./settingField"
 
 //set reducers
 import { setContent, setLanguage, setLoading, setMode, setSetting } from "reducers/setting";
-import { setText, setNextText, resetText } from 'reducers/text/text';
+import { setText, setNextText, resetText, setSentenceList } from 'reducers/text/text';
 import { resetPageCount, setLongTextContent, setLongTextTitle } from 'reducers/text/longText';
 import { setPageMode } from "reducers/pageMode";
 
@@ -22,7 +22,7 @@ const SettingContainer = () => {
     const dispatch = useDispatch();
 
     const [notice, setNotice] = useState(false);
-    const [priview, setPriview] = useState("");
+    const [overview, setOverview] = useState("");
     const [selectedMode, setSelectedMode] = useState("");
     const [selectedLanguage, setSelectedLanguage] = useState("");
     const [selectedLongText, setSelectedLongText] = useState("");
@@ -35,7 +35,10 @@ const SettingContainer = () => {
     const [isLongTextSelecting, setIsLongTextSelecting] = useState(false);
 
     const isFinished = useSelector(state => state.typingProgress.isFinished);
-    
+    const longTextTitle = useSelector(state => state.longText.longTextTitle);
+
+    const sentenceList = useSelector(state => state.text.sentenceList);
+
     //goal count input range
     const [goalCount, setGoalCount]  = useState(10);
     //initalize
@@ -61,11 +64,10 @@ const SettingContainer = () => {
     }, [selectedLanguage, selectedMode]);
 
     useEffect(() => {
-        printPriview();
-    }, [selectedLanguage, selectedMode, selectedLongText]);
+        printOverview();
+    }, [selectedLanguage, selectedMode, selectedLongText, goalCount]);
 
-    
-    const printPriview = () => {
+    const printOverview = () => {
         try {
             Axios.get(
                 (selectedMode == "longText") ? 
@@ -75,7 +77,16 @@ const SettingContainer = () => {
                 { withCredentials: true })
                 .then((res) => {
                     try {
-                        setPriview(res.data[0].content);
+                        if(selectedMode == "longText") setOverview(res.data[0].content);
+                        else {
+                            let temp = [];
+                        for(let i=0;i<goalCount;i++) {
+                            temp.push(res.data[Math.floor(Math.random() * res.data.length)].content);
+                        }
+                        setOverview(temp);
+                        dispatch(setSentenceList(temp));
+                        }
+                        
                     } catch(err) {
                         console.log(err);
                     }
@@ -84,6 +95,7 @@ const SettingContainer = () => {
             console.log(err);
         }
     }
+    
     //앞 문자 대문자로
     const capitalize = (str) => {
         return str.charAt(0).toUpperCase() + str.slice(1);
@@ -119,8 +131,7 @@ const SettingContainer = () => {
                         dispatch(setContent(res.data.map(row => {
                             return row.content
                         })));
-                        dispatch(setText(res.data[Math.floor(Math.random() * res.data.length)].content));
-                        dispatch(setNextText(res.data[Math.floor(Math.random() * res.data.length)].content));
+                        dispatch(setText(sentenceList[0]));
                         dispatch(setGoalProgress(goalCount));
                     }
         
@@ -155,7 +166,8 @@ const SettingContainer = () => {
             <SettingField
                 capitalize={capitalize}
                 notice={notice}
-                priview={priview}
+                overview={overview}
+                sentenceList={sentenceList}
                 selectedMode={selectedMode}
                 selectedLanguage={selectedLanguage}
                 selectedLongText={selectedLongText}

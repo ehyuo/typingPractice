@@ -14,7 +14,7 @@
     flex-direction: row;
     margin-top: 30px;
 }
-.setting__preview {
+.setting__overview {
     background-color: #181818;
     border-radius: 5px;
     
@@ -29,10 +29,21 @@
     text-align: left;
     overflow-y: hidden;
 }
-.setting__priview-text {
+.setting__overview-text {
     padding: 20px;
     font-size: 20px;
     line-height: 50px;
+}
+.setting__overview-sentence {
+    color: #404040;
+    height: 50px;
+    padding-left: 10px;
+}
+.setting__overview-sentence--first {
+    background-color: #242424;
+    border-radius: 10px;
+    color: #ffffff;
+
 }
 .setting__blur {
     position: absolute;

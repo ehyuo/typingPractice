@@ -1,9 +1,10 @@
 const ContentCount = (props) => {
     return(
-        <div class="simple-info-item">
-            <div><a>{props.sentenceCount}</a> sentences,</div>
-            <div><a>{props.wordCount}</a> words,</div>
-            <div><a>{props.longTextCount}</a> longTexts are available.</div> 
+        <div class="index__panel index__panel--count">
+            <div class="index__count"><div class="index__value--count">{props.sentenceCount}</div><div class="index__text--count">sentences</div></div>
+            <div class="index__count"><div class="index__value--count">{props.wordCount}</div><div class="index__text--count">words</div></div>
+            <div class="index__count"><div class="index__value--count">{props.longTextCount}</div><div class="index__text--count">longtexts</div></div> 
+            
         </div>
     )
 }

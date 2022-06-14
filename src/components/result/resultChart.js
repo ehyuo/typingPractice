@@ -10,7 +10,7 @@ const ResultChart = (props) => {
 
                     <Line dot={{ strokeWidth: 6 }} strokeWidth={3} yAxisId="left"  type="monotone" dataKey="speed" stroke="#d32f2f" />
                     <Line dot={{ strokeWidth: 6 }} strokeWidth={3} yAxisId="right" type="monotone" dataKey="accuracy" stroke="#1B6B9E" />
-                    <Legend margin={{ top: 30, left: 0, right: 0, bottom: 0 }} />
+                    <Legend />
                     <Tooltip
                     itemStyle={{ background: "#242424", color: "#ffffff" }}
                     labelStyle={{ display: "none" }}
