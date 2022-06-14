@@ -21,16 +21,16 @@ Description
 
 Overview
 -----
-#### Index
+### Index
 ![image](https://user-images.githubusercontent.com/66898263/173211107-2758e52f-41a9-4db2-9c2b-f461a8042dbc.png)
-#### Setting
+### Setting
 ![image](https://user-images.githubusercontent.com/66898263/173192914-a6613aa7-d845-4d51-89b9-64c9d3445a3a.png)
-#### Typing
+### Typing
 ![image](https://user-images.githubusercontent.com/66898263/173604930-611c5793-591e-4edc-878e-caccfc8b0151.png)
 ![image](https://user-images.githubusercontent.com/66898263/173192968-01f1727a-b7f3-4e2e-b18c-4308dfa87c8c.png)
 
 
-#### Result
+### Result
 ![image](https://user-images.githubusercontent.com/66898263/173192902-c8509029-d802-49ac-9b56-710ac55215f4.png)
-#### Scores
+### Scores
 ![image](https://user-images.githubusercontent.com/66898263/173213829-bc69cbbd-52d2-4408-9feb-afe5d3c0b6ed.png)
