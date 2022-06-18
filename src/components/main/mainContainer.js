@@ -5,7 +5,7 @@ import "./main.css";
 import IndexContainer from "../index/indexContainer";
 import SettingContainer from "../setting/settingContainer";
 import ResultContainer from "../result/resultContainer";
-import ScoreChartContainer from "../scoreChart/scoreChartContainer";
+import ScoreChartContainer from "../scoreTable/scoreTableContainer";
 import { setIsFolded } from "reducers/fold";
 
 const MainContainer = () => {
@@ -71,7 +71,7 @@ const MainContainer = () => {
         {returnFoldBtn()}
       </div>
     );
-  } else if (pageMode == "scoreChart") {
+  } else if (pageMode == "scoreTable") {
     return (
       <div 
         class="wrapper"

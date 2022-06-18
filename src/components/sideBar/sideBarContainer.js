@@ -56,7 +56,7 @@ const SideBarContainer = () => {
         <button
           onClick={() => {
             dispatch(setIsFolded(false))
-            dispatch(setPageMode("scoreChart"));
+            dispatch(setPageMode("scoreTable"));
           }}
         >
           <div>Scores</div>

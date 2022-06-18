@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
-import ScoreChart from "./scoreChart";
+import ScoreTable from "./scoreTable";
+import Details from "./details"
+
 import Axios from "axios";
 import React from "react";
 
-import "./scoreChart.css";
-import { useHistory } from "react-router-dom";
+import "./scoreTable.css";
 import { useDispatch } from "react-redux";
 import { setPageMode } from "../../reducers/pageMode";
 
-const ScoreChartContainer = () => {
+const ScoreTableContainer = () => {
   const dispatch = useDispatch();
   const [apiResponce, setApiResponce] = useState([]);
   const [recordPages, setRecordPages] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [isDetail, setIsDetail] = useState(false);
+  const [detailData, setDetailData] = useState([]);
 
   //레코드 값 받아오기
   useEffect(() => {
@@ -46,18 +50,31 @@ const ScoreChartContainer = () => {
     }
   }, [recordPages]);
 
+  const capitalize = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+  const onClickScore = (e, id) => {
+    setDetailData(apiResponce.filter(i => i.id == id));
+    setIsDetail(true)
+  }
   return (
-    <ScoreChart
+    !isDetail?
+    <ScoreTable
       apiResponce={apiResponce}
       recordPages={recordPages}
       currentPage={currentPage}
+      capitalize={capitalize}
       setCurrentPage={setCurrentPage}
       isLoading={isLoading}
+
+      onClickScore={onClickScore}
       setPageMode={() => {
         dispatch(setPageMode("result"));
       }}
-    />
+    /> :
+    <Details 
+      detailData={detailData}/>
   );
 };
 
-export default ScoreChartContainer;
+export default ScoreTableContainer;
