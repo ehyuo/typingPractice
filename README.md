@@ -32,5 +32,5 @@ Overview
 
 ### Result
 ![image](https://user-images.githubusercontent.com/66898263/173192902-c8509029-d802-49ac-9b56-710ac55215f4.png)
-### Scores
-![image](https://user-images.githubusercontent.com/66898263/173213829-bc69cbbd-52d2-4408-9feb-afe5d3c0b6ed.png)
+### ScoreTable
+![image](https://user-images.githubusercontent.com/66898263/174442515-44062ac4-ee53-44b8-a77e-3e018832e91d.png)
